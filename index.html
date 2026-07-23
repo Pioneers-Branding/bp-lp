@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Branding Pioneers — Healthcare Marketing that Fills Your Calendar</title>
+    <meta name="description"
+        content="Branding Pioneers is a healthcare-only digital marketing agency. HIPAA-conscious SEO, patient acquisition funnels, and brand positioning for doctors, clinics & hospitals. Book a free practice audit." />
+
+    <!-- Fonts: Fraunces (light display serif) / Inter (thin humanist sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        beige: { 50: '#FBF8F1', 100: '#F5F0E4', 200: '#EDE6D5', 300: '#E1D7C0', 400: '#CFC1A3' },
+                        teal: {
+                            50: '#E9F0EF',
+                            100: '#CADAD8',
+                            400: '#3E6B67',
+                            500: '#2C5450',
+                            600: '#1F433F',
+                            700: '#163330',
+                            900: '#0E2523',
+                        },
+                        gold: { 400: '#C99B5B', 500: '#B98846' },
+                    },
+                    letterSpacing: { widest2: '0.32em' },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FBF8F1;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Fraunces', Georgia, serif;
+        }
+
+        /* thin, elegant defaults */
+        h1,
+        h2,
+        h3 {
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+
+        /* ---------- Scroll reveals ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 1s cubic-bezier(.16, 1, .3, 1), transform 1s cubic-bezier(.16, 1, .3, 1);
+            transition-delay: var(--rd, 0ms);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-clip {
+            clip-path: inset(100% 0 0 0);
+            transition: clip-path 1.2s cubic-bezier(.77, 0, .18, 1);
+            transition-delay: var(--rd, 0ms);
+        }
+
+        .reveal-clip.is-visible {
+            clip-path: inset(0 0 0 0);
+        }
+
+        /* ---------- Hero entrance ---------- */
+        .hero-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s cubic-bezier(.16, 1, .3, 1) forwards;
+            animation-delay: var(--fd, 0s);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-clip {
+            clip-path: inset(100% 0 0 0);
+            animation: clipUp 1.2s cubic-bezier(.77, 0, .18, 1) forwards;
+            animation-delay: var(--cd, .2s);
+        }
+
+        @keyframes clipUp {
+            to {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        /* ---------- Images ---------- */
+        .img-zoom {
+            transition: transform 1.3s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .img-host:hover .img-zoom {
+            transform: scale(1.05);
+        }
+
+        .img-tone {
+            transition: filter .6s ease;
+        }
+
+        .px-wrap {
+            overflow: hidden;
+        }
+
+        .px-wrap img {
+            will-change: transform;
+        }
+
+        /* ---------- Work showcase caption ---------- */
+        .shot {
+            position: relative;
+        }
+
+        .shot-cap {
+            transform: translateY(101%);
+            transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .shot:hover .shot-cap,
+        .shot:focus-within .shot-cap {
+            transform: translateY(0);
+        }
+
+        /* ---------- Work carousels (mobile) ---------- */
+        .work-track {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .work-track::-webkit-scrollbar {
+            display: none;
+        }
+        /* On mobile, always show captions since there's no hover */
+        @media (max-width: 767px) {
+            .work-track .shot-cap {
+                transform: translateY(0);
+            }
+        }
+        .carousel-dots .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 9999px;
+            background: rgba(22, 51, 48, 0.2);
+            transition: background .3s ease, width .3s ease;
+        }
+        .carousel-dots .dot.active {
+            width: 16px;
+            background: #2C5450;
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            transition: color .4s ease, border-color .4s ease;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: var(--fill, #1F433F);
+            transform: translateY(101%);
+            transition: transform .5s cubic-bezier(.77, 0, .18, 1);
+        }
+
+        .btn:hover::before {
+            transform: translateY(0);
+        }
+
+        .btn .arr {
+            display: inline-block;
+            transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .btn:hover .arr {
+            transform: translateX(4px);
+        }
+
+        .ul-anim {
+            position: relative;
+        }
+
+        .ul-anim::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 1px;
+            width: 100%;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .45s cubic-bezier(.77, 0, .18, 1);
+        }
+
+        .ul-anim:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* ---------- Form ---------- */
+        .field {
+            transition: border-color .3s ease, background-color .3s ease;
+        }
+
+        .field:focus {
+            border-color: #2C5450;
+            background-color: #fff;
+            outline: none;
+        }
+
+        .field::placeholder {
+            color: #9aa7a4;
+        }
+
+        /* ---------- Segments hover ---------- */
+        .seg {
+            transition: background-color .45s ease, color .45s ease;
+        }
+
+        .seg:hover {
+            background-color: #1F433F;
+        }
+
+        .seg:hover .seg-t,
+        .seg:hover .seg-b {
+            color: #FBF8F1;
+        }
+
+        .seg:hover .seg-n {
+            color: #C99B5B;
+        }
+
+        .seg:hover .seg-i {
+            border-color: rgba(251, 248, 241, .3);
+            color: #CADAD8;
+        }
+
+        .seg-t,
+        .seg-b,
+        .seg-n,
+        .seg-i {
+            transition: color .45s ease, border-color .45s ease;
+        }
+
+        /* ================= SERVICES — horizontal scroll-scrub ================= */
+        /* MOBILE-FIRST: plain horizontal swipe row (no pin, no auto-scroll) */
+        .svc-viewport {
+            padding: 3.5rem 0 3rem;
+        }
+        .svc-head {
+            padding: 0 1.25rem 1.5rem;
+        }
+        .svc-track {
+            display: flex;
+            gap: 14px;
+            padding: 0 1.25rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .svc-track::-webkit-scrollbar { display: none; }
+        .svc-card {
+            position: relative;
+            flex: 0 0 78%;
+            scroll-snap-align: center;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(251,248,241,.14);
+        }
+        .svc-img { position: absolute; inset: 0; }
+        .svc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s cubic-bezier(.16,1,.3,1); }
+        .svc-scrim {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(14,37,35,.05) 0%, rgba(14,37,35,.5) 50%, rgba(14,37,35,.94) 100%);
+        }
+        .svc-cap {
+            position: absolute; inset-inline: 0; bottom: 0;
+            padding: 1.3rem 1.3rem 1.5rem;
+        }
+        .svc-n {
+            font-family: 'Fraunces', serif; font-weight: 300; font-size: 2rem; line-height: 1;
+            color: rgba(201,155,91,.9); display: block;
+        }
+        .svc-t {
+            margin-top: .4rem; font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.3rem; color: #FBF8F1;
+        }
+        .svc-d {
+            margin-top: .45rem; max-width: 22rem; font-size: 12.5px; line-height: 1.5; color: rgba(245,240,228,.8);
+        }
+        .svc-cta {
+            margin-top: .9rem; display: inline-flex; align-items: center; gap: .4rem;
+            background: #C99B5B; color: #163330; font-size: 12px; font-weight: 600;
+            padding: .6rem 1.1rem; border-radius: 9999px;
+            transition: transform .3s ease, background-color .3s ease;
+        }
+        .svc-cta:hover { transform: translateY(-2px); background: #FBF8F1; }
+        .svc-progress {
+            margin-top: 1.4rem; width: 180px; height: 3px; border-radius: 9999px;
+            background: rgba(251,248,241,.18); overflow: hidden;
+        }
+        .svc-progress-fill { display: block; height: 100%; width: 0%; background: #C99B5B; border-radius: 9999px; transition: width .15s linear; }
+
+        /* DESKTOP: pin viewport, scrub horizontally with vertical scroll */
+        @media (min-width: 1024px) {
+            .svc-viewport {
+                position: sticky; top: 0; height: 100vh;
+                padding: 0; overflow: hidden; display: flex; align-items: center;
+            }
+            .svc-viewport { background: #0E2523; }
+            .svc-head {
+                position: absolute; top: 3.2rem; left: 4vw; z-index: 10;
+                max-width: 22rem; padding: 0;
+                pointer-events: none;
+            }
+            .svc-head a, .svc-head { pointer-events: auto; }
+            .svc-track {
+                overflow: visible; scroll-snap-type: none;
+                gap: 22px; padding: 0 6vw 0 34vw;
+                align-items: center; will-change: transform;
+            }
+            .svc-card {
+                flex: 0 0 27vw; aspect-ratio: 4 / 5; height: 66vh; max-height: 620px;
+                border-radius: 22px;
+                transition: transform .6s cubic-bezier(.16,1,.3,1), box-shadow .6s ease;
+                transform: scale(.94);
+            }
+            .svc-card.is-active {
+                transform: scale(1);
+                box-shadow: 0 30px 60px -28px rgba(0,0,0,.6);
+            }
+            .svc-card.is-active .svc-img img { transform: scale(1.05); }
+            .svc-n { font-size: 2.4rem; }
+            .svc-t { font-size: 1.55rem; }
+            .svc-d { font-size: 13.5px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .svc-viewport { position: static !important; height: auto !important; display: block !important; padding: 3rem 0; }
+            .svc-head { position: static !important; }
+            .svc-track { transform: none !important; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 1.25rem; }
+            .svc-card { transform: none !important; }
+            #services { height: auto !important; }
+        }
+
+        /* ---------- FAQ ---------- */
+        .faq-a {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows .5s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .faq-a>div {
+            overflow: hidden;
+        }
+
+        .faq[data-open="true"] .faq-a {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-x {
+            transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .faq[data-open="true"] .faq-x {
+            transform: rotate(45deg);
+        }
+
+        /* ---------- Nav / progress ---------- */
+        #nav {
+            transition: background-color .4s ease, box-shadow .4s ease;
+        }
+
+        #nav.scrolled {
+            background-color: rgba(251, 248, 241, .9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 0 rgba(22, 51, 48, .1);
+        }
+
+        #progress {
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        /* ---------- Marquee ---------- */
+        @keyframes mq {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .mq-track {
+            animation: mq var(--s, 40s) linear infinite;
+        }
+
+        .mq:hover .mq-track {
+            animation-play-state: paused;
+        }
+
+        ::selection {
+            background: #2C5450;
+            color: #FBF8F1;
+        }
+
+        :focus-visible {
+            outline: 2px solid #2C5450;
+            outline-offset: 3px;
+        }
+
+        .skip {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .skip:focus {
+            left: 1rem;
+            top: 1rem;
+            z-index: 200;
+            background: #163330;
+            color: #FBF8F1;
+            padding: .7rem 1.1rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .reveal,
+            .reveal-clip,
+            .hero-fade,
+            .hero-clip {
+                opacity: 1 !important;
+                transform: none !important;
+                clip-path: none !important;
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .mq-track {
+                animation: none;
+            }
+
+            [data-px],
+            .px-wrap img {
+                transform: none !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-beige-50 text-teal-700 antialiased">
+
+    <a href="#lead-form" class="skip text-xs font-medium uppercase tracking-widest">Skip to booking form</a>
+    <div id="progress" class="fixed inset-x-0 top-0 z-[100] h-[2px] bg-gold-400" aria-hidden="true"></div>
+
+    <!-- ============================ NAV ============================ -->
+    <header id="nav" class="sticky top-0 z-50 bg-beige-50/85">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+            <a href="#" class="group flex items-center gap-3" aria-label="Branding Pioneers — home">
+                <img src="bp.avif" alt="logo" class="w-12 h-auto">
+                <span class="leading-tight">
+                    <span class="block font-serif text-lg font-400 tracking-tight text-teal-700">Branding
+                        Pioneers</span>
+                    <span class="block text-[10px] font-medium uppercase tracking-widest2 text-gold-500">Healthcare
+                        Marketing</span>
+                </span>
+            </a>
+
+            <ul class="hidden items-center gap-9 text-[13px] font-medium text-teal-500 lg:flex">
+                <li><a class="ul-anim hover:text-teal-700" href="#work">Our Work</a></li>
+                <li><a class="ul-anim hover:text-teal-700" href="#segments">Who We Help</a></li>
+                <li><a class="ul-anim hover:text-teal-700" href="#services">Services</a></li>
+                <li><a class="ul-anim hover:text-teal-700" href="#results">Results</a></li>
+            </ul>
+
+            <a href="#lead-form"
+                class="btn hidden items-center gap-2 rounded-full border border-teal-600 bg-teal-600 px-6 py-2.5 text-[13px] font-medium text-beige-50 lg:inline-flex"
+                style="--fill:#C99B5B">
+                Book Free Audit <span class="arr" aria-hidden="true">→</span>
+            </a>
+
+            <button id="menu-btn"
+                class="grid h-10 w-10 place-items-center rounded-full border border-teal-600/25 lg:hidden"
+                aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M4 8h16M4 16h16" stroke="#163330" stroke-width="1.6" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden border-t border-teal-600/10 bg-beige-50 px-5 pb-5 pt-2 lg:hidden">
+            <ul class="divide-y divide-teal-600/10 text-sm font-medium">
+                <li><a class="block py-3.5" href="#work">Our Work</a></li>
+                <li><a class="block py-3.5" href="#segments">Who We Help</a></li>
+                <li><a class="block py-3.5" href="#services">Services</a></li>
+                <li><a class="block py-3.5" href="#results">Results</a></li>
+                <li class="pt-4"><a href="#lead-form"
+                        class="block rounded-full bg-teal-600 px-5 py-3 text-center text-beige-50">Book Free Audit →</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============================ HERO + FORM ============================ -->
+        <section class="relative overflow-hidden border-b border-teal-600/10" aria-labelledby="hero-heading">
+            <div class="pointer-events-none absolute -right-40 top-0 h-[36rem] w-[36rem] rounded-full bg-teal-50 blur-3xl"
+                aria-hidden="true"></div>
+
+            <div
+                class="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-8 lg:py-16">
+                <!-- Left copy -->
+                <div>
+                    <p class="hero-fade inline-flex items-center gap-2 rounded-full border border-teal-600/20 bg-teal-50/50 px-4 py-1.5 text-[11px] font-medium uppercase tracking-widest2 text-teal-500"
+                        style="--fd:.1s">
+                        <span class="h-1.5 w-1.5 rounded-full bg-gold-400"></span> Healthcare-only · Since 2016
+                    </p>
+
+                    <h1 id="hero-heading"
+                        class="hero-fade mt-6 font-serif text-4xl font-300 leading-[1.08] tracking-tight text-teal-700 sm:text-5xl xl:text-[3.7rem]"
+                        style="--fd:.2s">
+                        More patients,<br class="hidden sm:block" /> booked while<br class="hidden sm:block" /> you
+                        practice <span class="italic text-gold-500">medicine.</span>
+                    </h1>
+
+                    <p class="hero-fade mt-6 max-w-md text-[15px] leading-relaxed text-teal-500" style="--fd:.35s">
+                        We build the marketing engine for doctors, clinics &amp; hospitals — search, ads and AI
+                        follow-up that turn enquiries into filled appointment slots.
+                    </p>
+
+                    <!-- trust stats -->
+                    <dl class="hero-fade mt-8 flex flex-wrap gap-x-10 gap-y-4" style="--fd:.5s">
+                        <div>
+                            <dd class="font-serif text-3xl font-300 text-teal-700">2,000<span
+                                    class="text-gold-500">+</span></dd>
+                            <dt class="text-[11px] font-medium uppercase tracking-widest text-teal-400">Clients</dt>
+                        </div>
+                        <div>
+                            <dd class="font-serif text-3xl font-300 text-teal-700">+212<span
+                                    class="text-gold-500">%</span></dd>
+                            <dt class="text-[11px] font-medium uppercase tracking-widest text-teal-400">Avg. enquiries
+                            </dt>
+                        </div>
+                        <div>
+                            <dd class="font-serif text-3xl font-300 text-teal-700">89<span
+                                    class="text-gold-500">%</span></dd>
+                            <dt class="text-[11px] font-medium uppercase tracking-widest text-teal-400">Client retention
+                            </dt>
+                        </div>
+                    </dl>
+
+                    <!-- little proof row -->
+                    <div class="hero-fade mt-8 flex items-center gap-4" style="--fd:.62s">
+                        <div class="flex -space-x-3" aria-hidden="true">
+                            <img class="h-9 w-9 rounded-full border-2 border-beige-50 object-cover"
+                                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=100&auto=format&fit=crop"
+                                alt="" />
+                            <img class="h-9 w-9 rounded-full border-2 border-beige-50 object-cover"
+                                src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=100&auto=format&fit=crop"
+                                alt="" />
+                            <img class="h-9 w-9 rounded-full border-2 border-beige-50 object-cover"
+                                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=100&auto=format&fit=crop"
+                                alt="" />
+                            <span
+                                class="grid h-9 w-9 place-items-center rounded-full border-2 border-beige-50 bg-teal-600 text-[10px] font-semibold text-beige-50">80+</span>
+                        </div>
+                        <p class="text-xs leading-snug text-teal-400">Trusted by hospitals, clinics &amp;<br />solo
+                            doctors across 3 countries.</p>
+                    </div>
+                </div>
+
+                <!-- Right: LEAD FORM -->
+                <div id="lead-form"
+                    class="hero-clip relative rounded-3xl border border-teal-600/15 bg-white p-6 shadow-[0_30px_60px_-30px_rgba(22,51,48,.35)] sm:p-8"
+                    style="--cd:.35s">
+                    <div class="pointer-events-none absolute -right-3 -top-3 h-16 w-16 rounded-full bg-gold-400/20 blur-xl"
+                        aria-hidden="true"></div>
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Free · 30 minutes · No
+                        obligation</p>
+                    <h2 class="mt-2 font-serif text-2xl font-400 text-teal-700">Book your practice growth audit</h2>
+                    <p class="mt-2 text-[13px] leading-relaxed text-teal-500">We&rsquo;ll benchmark you against your top
+                        3 competitors and show exactly where patients are leaking.</p>
+
+                    <form class="mt-6 space-y-3.5" id="audit-form" novalidate>
+                        <div class="grid gap-3.5 sm:grid-cols-2">
+                            <div>
+                                <label for="f-name" class="sr-only">Full name</label>
+                                <input id="f-name" name="name" type="text" required placeholder="Dr. Full Name"
+                                    class="field w-full rounded-xl border border-teal-600/20 bg-beige-50 px-4 py-3 text-sm text-teal-700" />
+                            </div>
+                            <div>
+                                <label for="f-phone" class="sr-only">Phone number</label>
+                                <input id="f-phone" name="phone" type="tel" required placeholder="Phone / WhatsApp"
+                                    class="field w-full rounded-xl border border-teal-600/20 bg-beige-50 px-4 py-3 text-sm text-teal-700" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="f-email" class="sr-only">Email address</label>
+                            <input id="f-email" name="email" type="email" required placeholder="Email address"
+                                class="field w-full rounded-xl border border-teal-600/20 bg-beige-50 px-4 py-3 text-sm text-teal-700" />
+                        </div>
+                        <div class="grid gap-3.5 sm:grid-cols-2">
+                            <div>
+                                <label for="f-type" class="sr-only">Practice type</label>
+                                <select id="f-type" name="practice" required
+                                    class="field w-full appearance-none rounded-xl border border-teal-600/20 bg-beige-50 px-4 py-3 text-sm text-teal-500">
+                                    <option value="" disabled selected>Practice type</option>
+                                    <option>Solo Practice / Doctor</option>
+                                    <option>Multi-Doctor Clinic</option>
+                                    <option>Hospital / Medical Group</option>
+                                    <option>Health &amp; Wellness Brand</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="f-city" class="sr-only">City</label>
+                                <input id="f-city" name="city" type="text" placeholder="City"
+                                    class="field w-full rounded-xl border border-teal-600/20 bg-beige-50 px-4 py-3 text-sm text-teal-700" />
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="btn mt-1 flex w-full items-center justify-center gap-2 rounded-xl border border-teal-600 bg-teal-600 px-6 py-3.5 text-sm font-medium text-beige-50"
+                            style="--fill:#C99B5B">
+                            Get My Free Audit <span class="arr" aria-hidden="true">→</span>
+                        </button>
+                        <p id="form-note" class="text-center text-[11px] leading-relaxed text-teal-400">By submitting
+                            you agree to be contacted about your audit. We never share your data.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ LOGOS / SPECIALTY MARQUEE ============================ -->
+        <div class="mq overflow-hidden border-b border-teal-600/10 bg-beige-100 py-4" aria-label="Specialties we serve">
+            <div class="mq-track flex w-max items-center whitespace-nowrap font-serif text-lg font-300 italic text-teal-400"
+                style="--s:32s;">
+                <span class="flex items-center">Cardiology<i class="mx-6 not-italic text-gold-400">✦</i>Oncology<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Orthopaedics<i
+                        class="mx-6 not-italic text-gold-400">✦</i>IVF &amp; Fertility<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Dental<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Dermatology<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Neurology<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Hospitals<i
+                        class="mx-6 not-italic text-gold-400">✦</i></span>
+                <span class="flex items-center" aria-hidden="true">Cardiology<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Oncology<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Orthopaedics<i
+                        class="mx-6 not-italic text-gold-400">✦</i>IVF &amp; Fertility<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Dental<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Dermatology<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Neurology<i
+                        class="mx-6 not-italic text-gold-400">✦</i>Hospitals<i
+                        class="mx-6 not-italic text-gold-400">✦</i></span>
+            </div>
+        </div>
+
+        <!-- ============================ WORK SCREENSHOTS SHOWCASE (5 columns) ============================ -->
+        <section id="work" class="border-b border-teal-600/10" aria-labelledby="work-heading">
+            <div class="mx-auto max-w-[95rem] px-4 py-14 lg:px-8 lg:py-20">
+                <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+                    <div class="reveal max-w-xl">
+                        <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Selected Work</p>
+                        <h2 id="work-heading"
+                            class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl">Real work,
+                            across every channel we run</h2>
+                    </div>
+                    <a href="#lead-form" class="reveal ul-anim text-[13px] font-medium text-teal-500"
+                        style="--rd:100ms">See what we&rsquo;d build for you →</a>
+                </div>
+
+                <!--
+                  5 category ROWS stacked vertically. Each row: sticky label + description on the
+                  left, its 3 cards flowing horizontally on the right.
+                  Mobile: the 3 cards become a swipeable / auto-rotating snap carousel.
+                  To add YOUR real screenshots: drop the file in assets/work/ and set the <img src>.
+                -->
+                <div class="reveal divide-y divide-teal-600/12 border-y border-teal-600/12">
+
+                    <!-- ========== ROW 1 — WEBSITES ========== -->
+                    <div class="work-col grid gap-4 py-7 md:grid-cols-[13rem_1fr] lg:gap-8">
+                        <div class="flex items-start justify-between md:block">
+                            <div>
+                                <h3 class="flex items-center gap-2 font-serif text-xl font-400 text-teal-700">
+                                    <span class="grid h-7 w-7 place-items-center rounded-md bg-teal-600 text-beige-50" aria-hidden="true">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="15" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 8h18" stroke="currentColor" stroke-width="2"/></svg>
+                                    </span>Websites
+                                </h3>
+                                <p class="mt-2 max-w-[11rem] text-[12px] leading-relaxed text-teal-500">Fast, bookable, HIPAA-conscious sites built to convert visitors into patients.</p>
+                            </div>
+                            <span class="carousel-dots hidden gap-1 md:mt-4" aria-hidden="true"></span>
+                        </div>
+                        <div class="work-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:snap-none md:gap-5 md:overflow-visible md:pb-0">
+                            <figure class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
+                                <div class="overflow-hidden"><img class="img-zoom block h-auto w-full object-contain object-top" loading="lazy" src="assets/work/harmony-tile.webp" alt="Harmony website homepage" /></div>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50"><p class="font-serif text-sm font-400">Harmony</p><p class="mt-0.5 text-[11px] text-beige-200/80">Healthcare website</p></figcaption>
+                            </figure>
+                            <figure class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
+                                <div class="overflow-hidden"><img class="img-zoom block h-auto w-full object-contain object-top" loading="lazy" src="assets/work/maxathome-tile.webp" alt="Max at Home healthcare website homepage" /></div>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50"><p class="font-serif text-sm font-400">Max@Home</p><p class="mt-0.5 text-[11px] text-beige-200/80">Home healthcare · lab &amp; nursing</p></figcaption>
+                            </figure>
+                            <figure class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
+                                <div class="overflow-hidden"><img class="img-zoom block h-auto w-full object-contain object-top" loading="lazy" src="assets/work/resiliency-tile.webp" alt="Resiliency Mind and Body Medicine website homepage" /></div>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50"><p class="font-serif text-sm font-400">Resiliency Mind + Body</p><p class="mt-0.5 text-[11px] text-beige-200/80">Integrative psychiatry · Newport Beach</p></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- ========== ROW 2 — SOCIAL MEDIA ========== -->
+                    <div class="work-col grid gap-4 py-7 md:grid-cols-[13rem_1fr] lg:gap-8">
+                        <div class="flex items-start justify-between md:block">
+                            <div>
+                                <h3 class="flex items-center gap-2 font-serif text-xl font-400 text-teal-700">
+                                    <span class="grid h-7 w-7 place-items-center rounded-md bg-gold-500 text-beige-50" aria-hidden="true">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+                                    </span>Social Media
+                                </h3>
+                                <p class="mt-2 max-w-[11rem] text-[12px] leading-relaxed text-teal-500">Scroll-stopping reels &amp; carousels that build trust and drive bookings.</p>
+                            </div>
+                            <span class="carousel-dots hidden gap-1 md:mt-4" aria-hidden="true"></span>
+                        </div>
+                        <div class="work-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:snap-none md:gap-4 md:overflow-visible md:pb-0">
+                            <figure class="shot img-host group relative w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white md:w-auto">
+                                <div class="aspect-[4/5] overflow-hidden"><img class="img-zoom h-full w-full object-cover object-top" loading="lazy" src="assets/work/apollo.webp" alt="Apollo social media creative" /></div>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50"><p class="font-serif text-sm font-400">Apollo</p><p class="mt-0.5 text-[11px] text-beige-200/80">Instagram creative</p></figcaption>
+                            </figure>
+                            <figure class="shot img-host group relative w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white md:w-auto">
+                                <div class="aspect-[4/5] overflow-hidden"><img class="img-zoom h-full w-full object-cover object-top" loading="lazy" src="assets/work/scod.webp" alt="SCOD social media creative" /></div>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50"><p class="font-serif text-sm font-400">SCOD</p><p class="mt-0.5 text-[11px] text-beige-200/80">Instagram creative</p></figcaption>
+                            </figure>
+                            <figure class="shot img-host group relative w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white md:w-auto">
+                                <div class="aspect-[4/5] overflow-hidden"><img class="img-zoom h-full w-full object-cover object-top" loading="lazy" src="assets/work/vision.webp" alt="Vision social media creative" /></div>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50"><p class="font-serif text-sm font-400">Vision</p><p class="mt-0.5 text-[11px] text-beige-200/80">Instagram creative</p></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- ========== ROW 3 — SEO ========== -->
+                    <div class="work-col grid gap-4 py-7 md:grid-cols-[13rem_1fr] lg:gap-8">
+                        <div class="flex items-start justify-between md:block">
+                            <div>
+                                <h3 class="flex items-center gap-2 font-serif text-xl font-400 text-teal-700">
+                                    <span class="grid h-7 w-7 place-items-center rounded-md bg-teal-600 text-beige-50" aria-hidden="true">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                    </span>SEO
+                                </h3>
+                                <p class="mt-2 max-w-[11rem] text-[12px] leading-relaxed text-teal-500">Ranking high-intent medical searches &amp; owning the local map pack.</p>
+                            </div>
+                            <span class="carousel-dots hidden gap-1 md:mt-4" aria-hidden="true"></span>
+                        </div>
+                        <div class="work-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:snap-none md:gap-4 md:overflow-visible md:pb-0">
+                            <figure class="w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white md:w-auto">
+                                <div class="p-4"><p class="text-[10px] font-semibold uppercase tracking-widest text-gold-500">Keyword ranking</p><p class="mt-1 font-serif text-sm text-teal-700">&ldquo;best ivf clinic near me&rdquo;</p>
+                                    <div class="mt-3 space-y-2">
+                                        <div class="flex items-center gap-2"><span class="grid h-5 w-5 place-items-center rounded bg-teal-600 text-[10px] font-semibold text-white">1</span><div class="h-1.5 flex-1 rounded-full bg-teal-600"></div><span class="text-[10px] text-teal-500">You</span></div>
+                                        <div class="flex items-center gap-2"><span class="grid h-5 w-5 place-items-center rounded bg-beige-300 text-[10px] font-semibold text-teal-700">2</span><div class="h-1.5 w-3/4 rounded-full bg-beige-300"></div></div>
+                                        <div class="flex items-center gap-2"><span class="grid h-5 w-5 place-items-center rounded bg-beige-300 text-[10px] font-semibold text-teal-700">3</span><div class="h-1.5 w-1/2 rounded-full bg-beige-300"></div></div>
+                                    </div>
+                                </div>
+                                <figcaption class="border-t border-teal-600/10 px-4 py-2 text-[10px] text-teal-400">▲ REPLACE w/ real SERP screenshot</figcaption>
+                            </figure>
+                            <figure class="w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white md:w-auto">
+                                <div class="p-4"><p class="text-[10px] font-semibold uppercase tracking-widest text-gold-500">Google Business</p><p class="mt-1 font-serif text-sm text-teal-700">Map-pack #1 · 3 branches</p>
+                                    <div class="mt-3 grid grid-cols-3 gap-2 text-center">
+                                        <div class="rounded-lg bg-beige-100 py-2"><p class="font-serif text-base text-teal-700">1.4k</p><p class="text-[8px] text-teal-400">calls/mo</p></div>
+                                        <div class="rounded-lg bg-beige-100 py-2"><p class="font-serif text-base text-teal-700">920</p><p class="text-[8px] text-teal-400">directions</p></div>
+                                        <div class="rounded-lg bg-beige-100 py-2"><p class="font-serif text-base text-teal-700">4.8★</p><p class="text-[8px] text-teal-400">rating</p></div>
+                                    </div>
+                                </div>
+                                <figcaption class="border-t border-teal-600/10 px-4 py-2 text-[10px] text-teal-400">▲ REPLACE w/ real GBP screenshot</figcaption>
+                            </figure>
+                            <figure class="grid min-h-[13rem] w-[80%] shrink-0 snap-center place-items-center overflow-hidden rounded-xl border border-dashed border-teal-600/25 bg-beige-100 text-center md:w-auto">
+                                <div class="px-4"><p class="font-serif text-sm text-teal-500">Your SEO win here</p><p class="mt-1 text-[10px] text-teal-400">Search Console / Ahrefs export</p></div>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- ========== ROW 4 — AI VIDEOS ========== -->
+                    <div class="work-col grid gap-4 py-7 md:grid-cols-[13rem_1fr] lg:gap-8">
+                        <div class="flex items-start justify-between md:block">
+                            <div>
+                                <h3 class="flex items-center gap-2 font-serif text-xl font-400 text-teal-700">
+                                    <span class="grid h-7 w-7 place-items-center rounded-md bg-gold-500 text-beige-50" aria-hidden="true">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg>
+                                    </span>AI Videos
+                                </h3>
+                                <p class="mt-2 max-w-[11rem] text-[12px] leading-relaxed text-teal-500">AI-generated doctor explainers &amp; patient-story reels, produced at scale.</p>
+                            </div>
+                            <span class="carousel-dots hidden gap-1 md:mt-4" aria-hidden="true"></span>
+                        </div>
+                        <!-- Real Instagram Reels — each card opens the reel in a new tab -->
+                        <div class="work-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-6 md:snap-none md:gap-3 md:overflow-visible md:pb-0">
+                            <a href="https://www.instagram.com/reel/DanCAvRiUdL/" target="_blank" rel="noopener" class="reel-card shot img-host group relative aspect-[9/16] w-[52%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-[linear-gradient(160deg,#163330,#2C5450)] md:w-auto" aria-label="Watch Instagram reel">
+                                <div class="absolute inset-0 grid place-items-center"><span class="grid h-11 w-11 place-items-center rounded-full bg-beige-50/90 text-teal-700 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+                                <span class="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-gold-400 px-2 py-0.5 text-[9px] font-semibold text-teal-900"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.4"/></svg>Reel</span>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-900/95 px-3 py-2 text-beige-50"><p class="font-serif text-[13px]">Patient reel</p><p class="mt-0.5 text-[10px] text-beige-200/80">Watch on Instagram →</p></figcaption>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DaDPAnGPZnX/" target="_blank" rel="noopener" class="reel-card shot img-host group relative aspect-[9/16] w-[52%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-[linear-gradient(160deg,#2C5450,#3E6B67)] md:w-auto" aria-label="Watch Instagram reel">
+                                <div class="absolute inset-0 grid place-items-center"><span class="grid h-11 w-11 place-items-center rounded-full bg-beige-50/90 text-teal-700 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+                                <span class="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-gold-400 px-2 py-0.5 text-[9px] font-semibold text-teal-900"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.4"/></svg>Reel</span>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-900/95 px-3 py-2 text-beige-50"><p class="font-serif text-[13px]">Patient reel</p><p class="mt-0.5 text-[10px] text-beige-200/80">Watch on Instagram →</p></figcaption>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DXZEfqHiJwp/" target="_blank" rel="noopener" class="reel-card shot img-host group relative aspect-[9/16] w-[52%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-[linear-gradient(160deg,#163330,#3E6B67)] md:w-auto" aria-label="Watch Instagram reel">
+                                <div class="absolute inset-0 grid place-items-center"><span class="grid h-11 w-11 place-items-center rounded-full bg-beige-50/90 text-teal-700 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+                                <span class="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-gold-400 px-2 py-0.5 text-[9px] font-semibold text-teal-900"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.4"/></svg>Reel</span>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-900/95 px-3 py-2 text-beige-50"><p class="font-serif text-[13px]">Patient reel</p><p class="mt-0.5 text-[10px] text-beige-200/80">Watch on Instagram →</p></figcaption>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DYxn_qhT0C-/" target="_blank" rel="noopener" class="reel-card shot img-host group relative aspect-[9/16] w-[52%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-[linear-gradient(160deg,#2C5450,#163330)] md:w-auto" aria-label="Watch Instagram reel">
+                                <div class="absolute inset-0 grid place-items-center"><span class="grid h-11 w-11 place-items-center rounded-full bg-beige-50/90 text-teal-700 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+                                <span class="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-gold-400 px-2 py-0.5 text-[9px] font-semibold text-teal-900"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.4"/></svg>Reel</span>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-900/95 px-3 py-2 text-beige-50"><p class="font-serif text-[13px]">Patient reel</p><p class="mt-0.5 text-[10px] text-beige-200/80">Watch on Instagram →</p></figcaption>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DYXZv8UzWV8/" target="_blank" rel="noopener" class="reel-card shot img-host group relative aspect-[9/16] w-[52%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-[linear-gradient(160deg,#3E6B67,#2C5450)] md:w-auto" aria-label="Watch Instagram reel">
+                                <div class="absolute inset-0 grid place-items-center"><span class="grid h-11 w-11 place-items-center rounded-full bg-beige-50/90 text-teal-700 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+                                <span class="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-gold-400 px-2 py-0.5 text-[9px] font-semibold text-teal-900"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.4"/></svg>Reel</span>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-900/95 px-3 py-2 text-beige-50"><p class="font-serif text-[13px]">Patient reel</p><p class="mt-0.5 text-[10px] text-beige-200/80">Watch on Instagram →</p></figcaption>
+                            </a>
+                            <a href="https://www.instagram.com/reel/DWcUPNRR2xW/" target="_blank" rel="noopener" class="reel-card shot img-host group relative aspect-[9/16] w-[52%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-[linear-gradient(160deg,#163330,#2C5450)] md:w-auto" aria-label="Watch Instagram reel">
+                                <div class="absolute inset-0 grid place-items-center"><span class="grid h-11 w-11 place-items-center rounded-full bg-beige-50/90 text-teal-700 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+                                <span class="absolute left-2.5 top-2.5 flex items-center gap-1 rounded-full bg-gold-400 px-2 py-0.5 text-[9px] font-semibold text-teal-900"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.4"/></svg>Reel</span>
+                                <figcaption class="shot-cap absolute inset-x-0 bottom-0 bg-teal-900/95 px-3 py-2 text-beige-50"><p class="font-serif text-[13px]">Patient reel</p><p class="mt-0.5 text-[10px] text-beige-200/80">Watch on Instagram →</p></figcaption>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ========== ROW 5 — SEO GROWTH ========== -->
+                    <div class="work-col grid gap-4 py-7 md:grid-cols-[13rem_1fr] lg:gap-8">
+                        <div class="flex items-start justify-between md:block">
+                            <div>
+                                <h3 class="flex items-center gap-2 font-serif text-xl font-400 text-teal-700">
+                                    <span class="grid h-7 w-7 place-items-center rounded-md bg-teal-600 text-beige-50" aria-hidden="true">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 18L10 12l4 4 6-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6h4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </span>SEO Growth
+                                </h3>
+                                <p class="mt-2 max-w-[11rem] text-[12px] leading-relaxed text-teal-500">The compounding traffic &amp; ranking curves our retainers deliver.</p>
+                            </div>
+                            <span class="carousel-dots hidden gap-1 md:mt-4" aria-hidden="true"></span>
+                        </div>
+                        <div class="work-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:snap-none md:gap-4 md:overflow-visible md:pb-0">
+                            <figure class="w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white md:w-auto">
+                                <div class="p-4"><div class="flex items-baseline justify-between"><p class="text-[10px] font-semibold uppercase tracking-widest text-gold-500">Organic traffic</p><span class="text-[10px] font-semibold text-teal-600">+318%</span></div>
+                                    <svg viewBox="0 0 200 70" class="mt-2 w-full" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M0 62C30 58 45 50 70 46S120 40 145 24 180 8 200 4" stroke="#2C5450" stroke-width="3" stroke-linecap="round"/><path d="M0 62C30 58 45 50 70 46S120 40 145 24 180 8 200 4V70H0Z" fill="#CADAD8" fill-opacity="0.4"/></svg>
+                                    <p class="mt-2 text-[10px] text-teal-400">12-month organic sessions</p>
+                                </div>
+                                <figcaption class="border-t border-teal-600/10 px-4 py-2 text-[10px] text-teal-400">▲ REPLACE w/ real GA4 chart</figcaption>
+                            </figure>
+                            <figure class="w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white md:w-auto">
+                                <div class="p-4"><p class="text-[10px] font-semibold uppercase tracking-widest text-gold-500">Keywords ranked</p>
+                                    <div class="mt-3 flex h-24 items-end gap-1.5">
+                                        <div class="flex-1 rounded-t bg-beige-300" style="height:22%"></div><div class="flex-1 rounded-t bg-beige-300" style="height:35%"></div><div class="flex-1 rounded-t bg-teal-500" style="height:48%"></div><div class="flex-1 rounded-t bg-teal-500" style="height:64%"></div><div class="flex-1 rounded-t bg-teal-600" style="height:82%"></div><div class="flex-1 rounded-t bg-gold-400" style="height:100%"></div>
+                                    </div>
+                                    <p class="mt-2 text-[10px] text-teal-400">120 → 1,240 page-one terms</p>
+                                </div>
+                                <figcaption class="border-t border-teal-600/10 px-4 py-2 text-[10px] text-teal-400">▲ REPLACE w/ real rank data</figcaption>
+                            </figure>
+                            <figure class="grid min-h-[13rem] w-[80%] shrink-0 snap-center place-items-center overflow-hidden rounded-xl border border-dashed border-teal-600/25 bg-beige-100 text-center md:w-auto">
+                                <div class="px-4"><p class="font-serif text-sm text-teal-500">Your growth chart</p><p class="mt-1 text-[10px] text-teal-400">GA4 / Search Console export</p></div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="reveal mt-4 text-center text-[11px] text-teal-400 md:hidden">Swipe any row →</p>
+            </div>
+        </section>
+
+        <!-- ============================ SEGMENTS ============================ -->
+        <section id="segments" class="border-b border-teal-600/10 bg-beige-100" aria-labelledby="segments-heading">
+            <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+                <div class="reveal mb-9 max-w-xl">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Who We Help</p>
+                    <h2 id="segments-heading"
+                        class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl">From one room
+                        to one thousand beds</h2>
+                </div>
+
+                <div
+                    class="reveal grid overflow-hidden rounded-2xl border border-teal-600/15 md:grid-cols-2 xl:grid-cols-4">
+                    <article
+                        class="seg group relative flex min-h-[15rem] flex-col border-b border-teal-600/12 p-7 md:border-r xl:border-b-0">
+                        <p class="seg-n font-serif text-2xl font-300 text-gold-500">01</p>
+                        <h3 class="seg-t mt-3 font-serif text-xl font-400 text-teal-700">Solo Doctors</h3>
+                        <p class="seg-b mt-2 flex-1 text-[13px] leading-relaxed text-teal-500">Own your locality —
+                            personal brand, Google map-pack, and a full OPD calendar.</p>
+                        <span
+                            class="seg-i mt-4 inline-flex w-fit items-center gap-1 rounded-full border border-teal-600/20 px-3 py-1 text-[11px] font-medium text-teal-500">Local
+                            SEO →</span>
+                    </article>
+                    <article
+                        class="seg group relative flex min-h-[15rem] flex-col border-b border-teal-600/12 p-7 xl:border-r xl:border-b-0">
+                        <p class="seg-n font-serif text-2xl font-300 text-gold-500">02</p>
+                        <h3 class="seg-t mt-3 font-serif text-xl font-400 text-teal-700">Multi-Doctor Clinics</h3>
+                        <p class="seg-b mt-2 flex-1 text-[13px] leading-relaxed text-teal-500">Department-level funnels
+                            &amp; AI reception that keep every chair productive.</p>
+                        <span
+                            class="seg-i mt-4 inline-flex w-fit items-center gap-1 rounded-full border border-teal-600/20 px-3 py-1 text-[11px] font-medium text-teal-500">AI
+                            Funnels →</span>
+                    </article>
+                    <article
+                        class="seg group relative flex min-h-[15rem] flex-col border-b border-teal-600/12 p-7 md:border-r md:border-b-0">
+                        <p class="seg-n font-serif text-2xl font-300 text-gold-500">03</p>
+                        <h3 class="seg-t mt-3 font-serif text-xl font-400 text-teal-700">Hospitals &amp; Groups</h3>
+                        <p class="seg-b mt-2 flex-1 text-[13px] leading-relaxed text-teal-500">Service-line positioning
+                            &amp; board-ready attribution across every branch.</p>
+                        <span
+                            class="seg-i mt-4 inline-flex w-fit items-center gap-1 rounded-full border border-teal-600/20 px-3 py-1 text-[11px] font-medium text-teal-500">Brand
+                            Growth →</span>
+                    </article>
+                    <article class="seg group relative flex min-h-[15rem] flex-col p-7">
+                        <p class="seg-n font-serif text-2xl font-300 text-gold-500">04</p>
+                        <h3 class="seg-t mt-3 font-serif text-xl font-400 text-teal-700">Wellness Brands</h3>
+                        <p class="seg-b mt-2 flex-1 text-[13px] leading-relaxed text-teal-500">Diagnostics, MedTech
+                            &amp; D2C — clinical credibility turned into scalable creative.</p>
+                        <span
+                            class="seg-i mt-4 inline-flex w-fit items-center gap-1 rounded-full border border-teal-600/20 px-3 py-1 text-[11px] font-medium text-teal-500">Performance
+                            →</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ SERVICES (horizontal scroll-scrub) ============================ -->
+        <!--
+          Desktop (lg+): section pins; vertical scroll drives the cards horizontally (immersive scrub).
+          Mobile/tablet: plain horizontal swipe row — no pin, no page-scroll hijack, no auto-scroll.
+        -->
+        <section id="services" class="svc relative bg-teal-900 text-beige-50" aria-labelledby="services-heading">
+            <div class="svc-viewport">
+                <!-- heading rail -->
+                <div class="svc-head">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Full-Service Digital Marketing</p>
+                    <h2 id="services-heading" class="mt-2 max-w-xl font-serif text-2xl font-300 leading-tight sm:text-3xl lg:text-4xl">Everything your practice needs to grow</h2>
+                    <p class="svc-head-sub mt-3 max-w-md text-[13.5px] leading-relaxed text-beige-200/70">Eight specialist teams, one accountable growth engine — built exclusively for healthcare.</p>
+                    <div class="svc-progress hidden lg:block" aria-hidden="true"><span class="svc-progress-fill"></span></div>
+                    <p class="mt-3 text-[10px] font-semibold uppercase tracking-widest text-gold-400/80"><span class="lg:hidden">Swipe →</span><span class="hidden lg:inline">Scroll to explore ↓</span></p>
+                </div>
+
+                <!-- horizontal track -->
+                <ol class="svc-track" role="list">
+                    <li class="svc-card" data-i="1"><div class="svc-img"><img src="assets/services/seo.webp" alt="Healthcare SEO" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">01</span><h3 class="svc-t">Healthcare SEO</h3><p class="svc-d">Rank your specialties for high-intent local searches — compliant &amp; physician-reviewed.</p></div></li>
+                    <li class="svc-card" data-i="2"><div class="svc-img"><img src="assets/services/ads.webp" alt="Performance advertising" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">02</span><h3 class="svc-t">Performance Ads</h3><p class="svc-d">Geo-targeted Google &amp; Meta campaigns that reach patients ready to book.</p></div></li>
+                    <li class="svc-card" data-i="3"><div class="svc-img"><img src="assets/services/social.webp" alt="Social media marketing" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">03</span><h3 class="svc-t">Social Media</h3><p class="svc-d">Reels &amp; carousels that turn followers into first-time patients.</p></div></li>
+                    <li class="svc-card" data-i="4"><div class="svc-img"><img src="assets/services/video.webp" alt="Content and video" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">04</span><h3 class="svc-t">Content &amp; Video</h3><p class="svc-d">Doctor explainers &amp; success-story films, reviewed for clinical accuracy.</p></div></li>
+                    <li class="svc-card" data-i="5"><div class="svc-img"><img src="assets/services/web.webp" alt="Website design and development" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">05</span><h3 class="svc-t">Website Design</h3><p class="svc-d">Fast, bookable, mobile-first sites engineered to convert visits into slots.</p></div></li>
+                    <li class="svc-card" data-i="6"><div class="svc-img"><img src="assets/services/ai.webp" alt="AI automation" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">06</span><h3 class="svc-t">AI &amp; Automation</h3><p class="svc-d">WhatsApp triage &amp; an AI receptionist that book the slot 24×7.</p></div></li>
+                    <li class="svc-card" data-i="7"><div class="svc-img"><img src="assets/services/orm.webp" alt="Reputation management" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">07</span><h3 class="svc-t">Reputation Mgmt</h3><p class="svc-d">Review generation &amp; response across every branch, so you win the choice.</p></div></li>
+                    <li class="svc-card svc-card--cta" data-i="8"><div class="svc-img"><img src="assets/services/analytics.webp" alt="Attribution and analytics" loading="lazy" /></div><div class="svc-scrim"></div><div class="svc-cap"><span class="svc-n">08</span><h3 class="svc-t">Attribution</h3><p class="svc-d">Every click tied to a booked, completed appointment — not vanity metrics.</p><a href="#lead-form" class="svc-cta">Get your custom plan →</a></div></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============================ RESULTS (parallax) ============================ -->
+        <section id="results" class="relative overflow-hidden border-b border-teal-600/10 bg-teal-700 text-beige-50"
+            aria-labelledby="results-heading">
+            <div class="px-wrap absolute inset-0" aria-hidden="true">
+                <img class="h-[130%] w-full object-cover opacity-[0.12] grayscale" data-pximg="0.15" loading="lazy"
+                    src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1600&auto=format&fit=crop"
+                    alt="" />
+                <div class="absolute inset-0 bg-gradient-to-b from-teal-700/60 via-transparent to-teal-900/70"></div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+                <div class="reveal mb-10 max-w-xl">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Proof, Not Promises
+                    </p>
+                    <h2 id="results-heading" class="mt-3 font-serif text-3xl font-300 leading-tight sm:text-4xl">Numbers
+                        our partners wake up to</h2>
+                </div>
+
+                <dl class="reveal grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="212"
+                                data-prefix="+" data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-sm text-beige-200/80">More new-patient enquiries in 9 months</dt>
+                    </div>
+                    <div>
+                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="318"
+                                data-prefix="+" data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-sm text-beige-200/80">Lift in organic search visibility</dt>
+                    </div>
+                    <div>
+                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="89"
+                                data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-sm text-beige-200/80">Client retention beyond year one</dt>
+                    </div>
+                    <div>
+                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="47"
+                                data-prefix="−" data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-sm text-beige-200/80">Lower cost per booked patient</dt>
+                    </div>
+                </dl>
+
+                <figure class="reveal mt-12 flex flex-wrap items-center gap-5 border-t border-beige-50/15 pt-8">
+                    <img class="h-14 w-14 rounded-full object-cover grayscale" loading="lazy"
+                        src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"
+                        alt="Medical director portrait" />
+                    <blockquote class="max-w-2xl font-serif text-lg font-300 italic leading-snug sm:text-xl">&ldquo;Our
+                        OPD footfall tripled, and we finally know which campaign every patient came from.&rdquo;
+                        <span
+                            class="mt-2 block font-sans text-[11px] font-medium uppercase not-italic tracking-widest text-beige-200/60">Medical
+                            Director — Hospital partner, Delhi NCR</span>
+                    </blockquote>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ============================ FAQ (compact) ============================ -->
+        <section class="border-b border-teal-600/10 bg-beige-100" aria-labelledby="faq-heading">
+            <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-20">
+                <div class="reveal lg:sticky lg:top-24 lg:self-start">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Quick Answers</p>
+                    <h2 id="faq-heading"
+                        class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl">Before you
+                        book</h2>
+                    <a href="#lead-form"
+                        class="btn mt-6 inline-flex items-center gap-2 rounded-full border border-teal-600 px-6 py-3 text-[13px] font-medium text-teal-700 hover:text-beige-50"
+                        style="--fill:#1F433F">Book your audit <span class="arr" aria-hidden="true">→</span></a>
+                </div>
+
+                <div class="reveal divide-y divide-teal-600/12 border-y border-teal-600/12" style="--rd:100ms">
+                    <div class="faq" data-open="false">
+                        <h3><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left"
+                                aria-expanded="false">
+                                <span class="font-serif text-lg font-400 text-teal-700">Is it compliant with HIPAA / NMC
+                                    / ASCI?</span>
+                                <span
+                                    class="faq-x grid h-7 w-7 shrink-0 place-items-center rounded-full border border-teal-600/30 text-teal-500"
+                                    aria-hidden="true">+</span>
+                            </button></h3>
+                        <div class="faq-a">
+                            <div>
+                                <p class="pb-5 text-[13.5px] leading-relaxed text-teal-500">Yes — consent-first
+                                    analytics, no patient-identifiable data in ad platforms, NMC/ASCI-safe claims, and
+                                    physician review on all clinical copy. HIPAA-conscious data handling for US-facing
+                                    clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq" data-open="false">
+                        <h3><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left"
+                                aria-expanded="false">
+                                <span class="font-serif text-lg font-400 text-teal-700">How soon do we see
+                                    results?</span>
+                                <span
+                                    class="faq-x grid h-7 w-7 shrink-0 place-items-center rounded-full border border-teal-600/30 text-teal-500"
+                                    aria-hidden="true">+</span>
+                            </button></h3>
+                        <div class="faq-a">
+                            <div>
+                                <p class="pb-5 text-[13.5px] leading-relaxed text-teal-500">Paid enquiries in 2–4 weeks;
+                                    SEO leadership by months 6–9. A live dashboard shows enquiries, bookings and
+                                    cost-per-patient in real time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq" data-open="false">
+                        <h3><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left"
+                                aria-expanded="false">
+                                <span class="font-serif text-lg font-400 text-teal-700">How do you measure ROI?</span>
+                                <span
+                                    class="faq-x grid h-7 w-7 shrink-0 place-items-center rounded-full border border-teal-600/30 text-teal-500"
+                                    aria-hidden="true">+</span>
+                            </button></h3>
+                        <div class="faq-a">
+                            <div>
+                                <p class="pb-5 text-[13.5px] leading-relaxed text-teal-500">Our in-house attribution
+                                    tags every call, WhatsApp and form to a booked, completed appointment — so you see
+                                    cost per patient and revenue per service line, not vanity metrics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq" data-open="false">
+                        <h3><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left"
+                                aria-expanded="false">
+                                <span class="font-serif text-lg font-400 text-teal-700">What does onboarding look
+                                    like?</span>
+                                <span
+                                    class="faq-x grid h-7 w-7 shrink-0 place-items-center rounded-full border border-teal-600/30 text-teal-500"
+                                    aria-hidden="true">+</span>
+                            </button></h3>
+                        <div class="faq-a">
+                            <div>
+                                <p class="pb-5 text-[13.5px] leading-relaxed text-teal-500">Week 1 audit, week 2 roadmap
+                                    &amp; setup, campaigns live by week 3 — run by a dedicated pod with a fixed weekly
+                                    review call.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ FINAL CTA ============================ -->
+        <section class="relative overflow-hidden bg-teal-900 text-beige-50">
+            <div class="px-wrap absolute inset-0" aria-hidden="true">
+                <img class="h-[130%] w-full object-cover opacity-[0.12] grayscale" data-pximg="0.14" loading="lazy"
+                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=1600&auto=format&fit=crop"
+                    alt="" />
+                <div class="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-900/80 to-teal-700/70"></div>
+            </div>
+            <div class="relative mx-auto max-w-7xl px-5 py-16 text-center lg:px-8 lg:py-20">
+                <p class="reveal text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Free · 30 minutes ·
+                    No obligation</p>
+                <h2 class="reveal mx-auto mt-4 max-w-2xl font-serif text-3xl font-300 leading-tight sm:text-5xl"
+                    style="--rd:80ms">Your next 1,000 patients are searching right now.</h2>
+                <p class="reveal mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-beige-200/75"
+                    style="--rd:140ms">Book a free practice audit and see exactly where patients are slipping away.</p>
+                <div class="reveal mt-8 flex flex-wrap justify-center gap-4" style="--rd:200ms">
+                    <a href="#lead-form"
+                        class="btn inline-flex items-center gap-2 rounded-full border border-gold-400 bg-gold-400 px-8 py-4 text-sm font-medium text-teal-900"
+                        style="--fill:#FBF8F1">Book My Free Audit <span class="arr" aria-hidden="true">→</span></a>
+                    <a href="tel:+918377009395"
+                        class="btn inline-flex items-center gap-2 rounded-full border border-beige-50/50 px-8 py-4 text-sm font-medium text-beige-50"
+                        style="--fill:#1F433F">Call +91 83770 09395</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="bg-teal-900 text-beige-50/80">
+        <div
+            class="mx-auto grid max-w-7xl gap-8 border-t border-beige-50/10 px-5 py-10 md:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
+            <div>
+                <div class="flex items-center gap-3">
+                    <span class="grid h-10 w-10 place-items-center rounded-full bg-teal-600" aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 19V5h8a4.5 4.5 0 0 1 0 9H8" stroke="#FBF8F1" stroke-width="1.6" />
+                            <path d="M14 14l5 5" stroke="#C99B5B" stroke-width="1.6" />
+                        </svg>
+                    </span>
+                    <span class="leading-tight">
+                        <span class="block font-serif text-lg text-beige-50">Branding Pioneers</span>
+                        <span class="block text-[10px] font-medium uppercase tracking-widest2 text-gold-400">Healthcare
+                            Marketing</span>
+                    </span>
+                </div>
+                <p class="mt-4 max-w-xs text-[13px] leading-relaxed text-beige-200/60">Healthcare-only digital marketing
+                    for doctors, clinics &amp; hospitals — since 2016.</p>
+            </div>
+            <nav aria-label="Footer navigation">
+                <h3 class="text-[10px] font-semibold uppercase tracking-widest2 text-beige-50">Explore</h3>
+                <ul class="mt-4 space-y-2.5 text-[13px]">
+                    <li><a class="ul-anim hover:text-beige-50" href="#work">Our Work</a></li>
+                    <li><a class="ul-anim hover:text-beige-50" href="#services">Services</a></li>
+                    <li><a class="ul-anim hover:text-beige-50" href="#results">Results</a></li>
+                    <li><a class="ul-anim hover:text-beige-50" href="#lead-form">Book Audit</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h3 class="text-[10px] font-semibold uppercase tracking-widest2 text-beige-50">Contact</h3>
+                <ul class="mt-4 space-y-2.5 text-[13px]">
+                    <li>750 Udyog Vihar, Phase 5, Gurgaon</li>
+                    <li><a class="ul-anim hover:text-beige-50" href="tel:+918377009395">+91 83770 09395</a></li>
+                    <li><a class="ul-anim hover:text-beige-50"
+                            href="mailto:brandingpioneers@gmail.com">brandingpioneers@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="border-t border-beige-50/10 px-5 py-4 text-center text-[11px] tracking-wide text-beige-200/50">© 2026
+            Branding Pioneers — Healthcare marketing, done responsibly.</p>
+    </footer>
+
+    <!-- ============================ SCRIPTS ============================ -->
+    <script>
+        (function () {
+            'use strict';
+            const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // nav + progress
+            const nav = document.getElementById('nav'), progress = document.getElementById('progress');
+            const ui = () => {
+                nav.classList.toggle('scrolled', scrollY > 10);
+                const max = document.documentElement.scrollHeight - innerHeight;
+                progress.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
+            };
+            addEventListener('scroll', ui, { passive: true }); ui();
+
+            // mobile menu
+            const mb = document.getElementById('menu-btn'), mm = document.getElementById('mobile-menu');
+            mb.addEventListener('click', () => {
+                const open = !mm.classList.toggle('hidden');
+                mb.setAttribute('aria-expanded', String(open));
+                mb.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            mm.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mm.classList.add('hidden'); mb.setAttribute('aria-expanded', 'false'); }));
+
+            // Broken-image fallback: any image that fails to load gets a labeled placeholder
+            // instead of collapsing to nothing (uses its alt text).
+            document.querySelectorAll('img').forEach((img) => {
+                img.addEventListener('error', () => {
+                    if (img.dataset.fallback) return;
+                    img.dataset.fallback = '1';
+                    const label = (img.alt || 'Image').slice(0, 60);
+                    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">' +
+                        '<rect width="600" height="450" fill="#163330"/>' +
+                        '<text x="50%" y="48%" fill="#CADAD8" font-family="Georgia,serif" font-size="22" text-anchor="middle">Branding Pioneers</text>' +
+                        '<text x="50%" y="57%" fill="#C99B5B" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">' +
+                        label.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text></svg>';
+                    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+                }, { once: true });
+            });
+
+            // reveals
+            const rev = document.querySelectorAll('.reveal, .reveal-clip');
+            const show = (el) => el.classList.add('is-visible');
+            if ('IntersectionObserver' in window && !reduce) {
+                const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }), { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+                rev.forEach((el) => io.observe(el));
+                // Failsafe: never let content stay hidden if the observer misses it.
+                setTimeout(() => rev.forEach(show), 2000);
+                addEventListener('load', () => rev.forEach(show));
+            } else rev.forEach(show);
+
+            // counters
+            const run = (el) => {
+                const t = parseInt(el.dataset.target, 10), pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+                if (reduce) { el.textContent = pre + t + suf; return; }
+                let s = null;
+                const step = (ts) => { if (!s) s = ts; const p = Math.min((ts - s) / 1500, 1); el.textContent = pre + Math.round((1 - Math.pow(1 - p, 3)) * t) + suf; if (p < 1) requestAnimationFrame(step); };
+                requestAnimationFrame(step);
+            };
+            const cs = document.querySelectorAll('.counter');
+            if ('IntersectionObserver' in window) {
+                const cio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { run(e.target); cio.unobserve(e.target); } }), { threshold: 0.5 });
+                cs.forEach((el) => cio.observe(el));
+            } else cs.forEach(run);
+
+            // parallax images + decorative blocks/orbs ([data-px])
+            const imgs = document.querySelectorAll('[data-pximg]');
+            const blocks = document.querySelectorAll('[data-px]');
+            let tick = false;
+            const px = () => {
+                tick = false; const vh = innerHeight;
+                imgs.forEach((img) => {
+                    const host = img.closest('section') || img, r = host.getBoundingClientRect();
+                    if (r.bottom < 0 || r.top > vh) return;
+                    const prog = (r.top + r.height / 2 - vh / 2) / vh;
+                    img.style.transform = 'translate3d(0,' + (prog * -parseFloat(img.dataset.pximg) * r.height).toFixed(1) + 'px,0)';
+                });
+                blocks.forEach((el) => {
+                    const host = el.closest('section') || el, r = host.getBoundingClientRect();
+                    if (r.bottom < -200 || r.top > vh + 200) return;
+                    const mid = r.top + r.height / 2 - vh / 2;
+                    el.style.transform = 'translate3d(0,' + (mid * parseFloat(el.dataset.px)).toFixed(1) + 'px,0)';
+                });
+            };
+            if (!reduce) { addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(px); } }, { passive: true }); addEventListener('resize', px, { passive: true }); px(); }
+
+            // FAQ
+            document.querySelectorAll('.faq').forEach((item) => {
+                const t = item.querySelector('.faq-trigger');
+                t.addEventListener('click', () => {
+                    const open = item.dataset.open === 'true';
+                    document.querySelectorAll('.faq[data-open="true"]').forEach((o) => { if (o !== item) { o.dataset.open = 'false'; o.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false'); } });
+                    item.dataset.open = String(!open);
+                    t.setAttribute('aria-expanded', String(!open));
+                });
+            });
+
+            // form (front-end only)
+            const form = document.getElementById('audit-form'), note = document.getElementById('form-note');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (!form.checkValidity()) { form.reportValidity(); return; }
+                form.querySelector('button[type="submit"]').textContent = '✓ Request received — we’ll call you within 1 working day';
+                form.querySelector('button[type="submit"]').disabled = true;
+                note.textContent = 'Thank you! A growth strategist will reach out shortly.';
+            });
+
+            // Work-column carousels: dots reflect manual swipe only. NO auto-advance,
+            // NO page scrolling — the track scrolls itself, the page never moves.
+            const mqMobile = matchMedia('(max-width: 767px)');
+            document.querySelectorAll('.work-col').forEach((col) => {
+                const track = col.querySelector('.work-track');
+                if (!track) return;
+                const cards = Array.from(track.children);
+                if (cards.length < 2) return;
+
+                const dotsHost = col.querySelector('.carousel-dots');
+                if (dotsHost) {
+                    dotsHost.innerHTML = cards.map((_, i) => '<span class="dot' + (i === 0 ? ' active' : '') + '"></span>').join('');
+                }
+                const dots = dotsHost ? Array.from(dotsHost.children) : [];
+                const setDots = (i) => dots.forEach((d, k) => d.classList.toggle('active', k === i));
+
+                // update dots from the track's own scroll position (no page scroll)
+                let sTimer;
+                track.addEventListener('scroll', () => {
+                    clearTimeout(sTimer);
+                    sTimer = setTimeout(() => {
+                        const c = track.getBoundingClientRect(), cx = c.left + c.width / 2;
+                        let best = 0, bestD = Infinity;
+                        cards.forEach((card, k) => { const r = card.getBoundingClientRect(); const d = Math.abs(r.left + r.width / 2 - cx); if (d < bestD) { bestD = d; best = k; } });
+                        setDots(best);
+                    }, 120);
+                }, { passive: true });
+
+                // tapping a dot scrolls only the track
+                dots.forEach((dot, i) => dot.addEventListener('click', () => {
+                    track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+                }));
+
+                const sync = () => { dotsHost && dotsHost.classList.toggle('hidden', !mqMobile.matches); dotsHost && dotsHost.classList.toggle('flex', mqMobile.matches); };
+                mqMobile.addEventListener('change', sync);
+                sync();
+            });
+
+            // ===================== SERVICES — horizontal scroll-scrub =====================
+            (function servicesScrub() {
+                const section = document.getElementById('services');
+                if (!section) return;
+                const viewport = section.querySelector('.svc-viewport');
+                const track = section.querySelector('.svc-track');
+                if (!viewport || !track) return;
+                const cards = Array.from(track.children);
+                const fill = section.querySelector('.svc-progress-fill');
+
+                const isDesktop = () => matchMedia('(min-width: 1024px)').matches;
+                let maxShift = 0;
+
+                const measure = () => {
+                    // total horizontal distance the track must travel
+                    maxShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
+                    // the section is tall enough to give that travel some scroll room
+                    if (isDesktop() && !reduce) {
+                        section.style.height = (viewport.clientHeight + maxShift) + 'px';
+                    } else {
+                        section.style.height = '';
+                        track.style.transform = '';
+                        if (fill) fill.style.width = '0%';
+                    }
+                };
+
+                let ticking = false;
+                const onScroll = () => {
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        ticking = false;
+                        if (!isDesktop() || reduce) return;
+                        const rect = section.getBoundingClientRect();
+                        const scrollable = section.offsetHeight - viewport.clientHeight;
+                        const passed = Math.min(Math.max(-rect.top, 0), scrollable);
+                        const p = scrollable > 0 ? passed / scrollable : 0;   // 0..1
+                        track.style.transform = 'translate3d(' + (-p * maxShift).toFixed(1) + 'px,0,0)';
+                        if (fill) fill.style.width = (p * 100).toFixed(1) + '%';
+                        cards.forEach((c, i) => {
+                            const active = Math.round(p * (cards.length - 1)) === i;
+                            c.classList.toggle('is-active', active);
+                        });
+                    });
+                };
+
+                measure();
+                addEventListener('scroll', onScroll, { passive: true });
+                addEventListener('resize', () => { measure(); onScroll(); }, { passive: true });
+                matchMedia('(min-width: 1024px)').addEventListener('change', () => { measure(); onScroll(); });
+                onScroll();
+            })();
+        })();
+    </script>
+</body>
+
+</html>
