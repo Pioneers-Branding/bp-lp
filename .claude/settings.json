@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /a/Work/bp-new-lp status --short)"
+    ]
+  }
+}
