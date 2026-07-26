@@ -929,8 +929,8 @@
                                 class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
                                 <div class="overflow-hidden"><img
                                         class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
-                                        src="assets/work/dzen.webp"
-                                        alt="D'Zen Derma skin clinic website homepage" /></div>
+                                        src="assets/work/dzen.webp" alt="D'Zen Derma skin clinic website homepage" />
+                                </div>
                                 <figcaption
                                     class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
                                     <p class="font-serif text-sm font-400">D&rsquo;Zen Derma</p>
@@ -1666,8 +1666,9 @@
             <div>
                 <h3 class="text-[10px] font-semibold uppercase tracking-widest2 text-beige-50">Contact</h3>
                 <ul class="mt-4 space-y-2.5 text-[13px]">
-                    <li>750 Udyog Vihar, Phase 5, Gurgaon</li>
-                    <li><a class="ul-anim hover:text-beige-50" href="tel:+918377009395">+91 83770 09395</a></li>
+                    <li>Ground Floor, SupremeWork Co-working Space, Plot No. 84, Institutional Area, Sector 32,
+                        Gurugram, Haryana 122001</li>
+                    <li><a class="ul-anim hover:text-beige-50" href="tel:+9198117 80937">+91 98117 80937</a></li>
                     <li><a class="ul-anim hover:text-beige-50"
                             href="mailto:brandingpioneers@gmail.com">brandingpioneers@gmail.com</a></li>
                 </ul>
@@ -1772,16 +1773,6 @@
                     item.dataset.open = String(!open);
                     t.setAttribute('aria-expanded', String(!open));
                 });
-            });
-
-            // form (front-end only)
-            const form = document.getElementById('audit-form'), note = document.getElementById('form-note');
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                if (!form.checkValidity()) { form.reportValidity(); return; }
-                form.querySelector('button[type="submit"]').textContent = '✓ Request received — we’ll call you within 1 working day';
-                form.querySelector('button[type="submit"]').disabled = true;
-                note.textContent = 'Thank you! A growth strategist will reach out shortly.';
             });
 
             // Work-column carousels: dots reflect manual swipe only. NO auto-advance,
