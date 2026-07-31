@@ -24,6 +24,9 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    screens: {
+                        xs: '375px',
+                    },
                     fontFamily: {
                         serif: ['Fraunces', 'Georgia', 'serif'],
                         sans: ['Inter', 'sans-serif'],
@@ -48,10 +51,23 @@
     </script>
 
     <style>
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: #FBF8F1;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* Prevent iOS Safari auto-zoom on field focus */
+        @media (max-width: 767px) {
+            input, select, textarea, .field {
+                font-size: 16px !important;
+            }
         }
 
         h1,
@@ -165,10 +181,12 @@
             display: none;
         }
 
-        /* On mobile, always show captions since there's no hover */
+        /* On mobile, show captions with gradient mask so images stay clearly visible */
         @media (max-width: 767px) {
             .work-track .shot-cap {
                 transform: translateY(0);
+                background: linear-gradient(180deg, transparent 0%, rgba(22, 51, 48, 0.94) 100%);
+                padding: 1.5rem 0.85rem 0.65rem;
             }
         }
 
@@ -635,10 +653,10 @@
             </a>
 
             <ul class="hidden items-center gap-9 text-[13px] font-medium text-teal-500 lg:flex">
+                <li><a class="ul-anim hover:text-teal-700" href="#results">Results</a></li>
                 <li><a class="ul-anim hover:text-teal-700" href="#work">Our Work</a></li>
                 <li><a class="ul-anim hover:text-teal-700" href="#segments">Who We Help</a></li>
                 <li><a class="ul-anim hover:text-teal-700" href="#services">Services</a></li>
-                <li><a class="ul-anim hover:text-teal-700" href="#results">Results</a></li>
             </ul>
 
             <a href="#lead-form"
@@ -657,10 +675,10 @@
         </nav>
         <div id="mobile-menu" class="hidden border-t border-teal-600/10 bg-beige-50 px-5 pb-5 pt-2 lg:hidden">
             <ul class="divide-y divide-teal-600/10 text-sm font-medium">
+                <li><a class="block py-3.5" href="#results">Results</a></li>
                 <li><a class="block py-3.5" href="#work">Our Work</a></li>
                 <li><a class="block py-3.5" href="#segments">Who We Help</a></li>
                 <li><a class="block py-3.5" href="#services">Services</a></li>
-                <li><a class="block py-3.5" href="#results">Results</a></li>
                 <li class="pt-4"><a href="#lead-form"
                         class="block rounded-full bg-teal-600 px-5 py-3 text-center text-beige-50">Book Free Audit →</a>
                 </li>
@@ -685,34 +703,34 @@
                     </p>
 
                     <h1 id="hero-heading"
-                        class="hero-fade mt-6 font-serif text-4xl font-300 leading-[1.08] tracking-tight text-teal-700 sm:text-5xl xl:text-[3.7rem]"
+                        class="hero-fade mt-6 font-serif text-[2.1rem] xs:text-4xl sm:text-5xl xl:text-[3.7rem] font-300 leading-[1.08] tracking-tight text-teal-700"
                         style="--fd:.2s">
                         More patients,<br class="hidden sm:block" /> booked while<br class="hidden sm:block" /> you
                         practice <span class="italic text-gold-500">medicine.</span>
                     </h1>
 
-                    <p class="hero-fade mt-6 max-w-md text-[15px] leading-relaxed text-teal-500" style="--fd:.35s">
+                    <p class="hero-fade mt-6 max-w-md text-sm xs:text-[15px] leading-relaxed text-teal-500" style="--fd:.35s">
                         We build the marketing engine for doctors, clinics &amp; hospitals — search, ads and AI
                         follow-up that turn enquiries into filled appointment slots.
                     </p>
 
                     <!-- trust stats -->
-                    <dl class="hero-fade mt-8 flex flex-wrap gap-x-10 gap-y-4" style="--fd:.5s">
+                    <dl class="hero-fade mt-8 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-4 text-center sm:text-left" style="--fd:.5s">
                         <div>
-                            <dd class="font-serif text-3xl font-300 text-teal-700">2,000<span
+                            <dd class="font-serif text-2xl xs:text-3xl font-300 text-teal-700">2,000<span
                                     class="text-gold-500">+</span></dd>
-                            <dt class="text-[11px] font-medium uppercase tracking-widest text-teal-400">Clients</dt>
+                            <dt class="text-[10px] xs:text-[11px] font-medium uppercase tracking-widest text-teal-400">Clients</dt>
                         </div>
                         <div>
-                            <dd class="font-serif text-3xl font-300 text-teal-700">+212<span
+                            <dd class="font-serif text-2xl xs:text-3xl font-300 text-teal-700">+212<span
                                     class="text-gold-500">%</span></dd>
-                            <dt class="text-[11px] font-medium uppercase tracking-widest text-teal-400">Avg. enquiries
+                            <dt class="text-[10px] xs:text-[11px] font-medium uppercase tracking-widest text-teal-400">Avg. enquiries
                             </dt>
                         </div>
                         <div>
-                            <dd class="font-serif text-3xl font-300 text-teal-700">89<span
+                            <dd class="font-serif text-2xl xs:text-3xl font-300 text-teal-700">89<span
                                     class="text-gold-500">%</span></dd>
-                            <dt class="text-[11px] font-medium uppercase tracking-widest text-teal-400">Client retention
+                            <dt class="text-[10px] xs:text-[11px] font-medium uppercase tracking-widest text-teal-400">Client retention
                             </dt>
                         </div>
                     </dl>
@@ -821,6 +839,61 @@
                         class="mx-6 not-italic text-gold-400">✦</i></span>
             </div>
         </div>
+
+        <!-- ============================ RESULTS (parallax) ============================ -->
+        <section id="results" class="relative overflow-hidden border-b border-teal-600/10 bg-teal-700 text-beige-50"
+            aria-labelledby="results-heading">
+            <div class="px-wrap absolute inset-0" aria-hidden="true">
+                <img class="h-[130%] w-full object-cover opacity-[0.42] grayscale" data-pximg="0.15" loading="lazy"
+                    src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="" />
+                <div class="absolute inset-0 bg-gradient-to-b from-teal-700/60 via-transparent to-teal-900/70"></div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
+                <div class="reveal mb-8 max-w-xl">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Proof, Not Promises
+                    </p>
+                    <h2 id="results-heading" class="mt-2 font-serif text-3xl font-300 leading-tight sm:text-4xl">Numbers
+                        our partners wake up to</h2>
+                </div>
+
+                <dl class="reveal grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-8 sm:gap-y-8">
+                    <div>
+                        <dd class="font-serif text-3xl font-300 text-gold-400 xs:text-4xl sm:text-5xl"><span class="counter" data-target="212"
+                                data-prefix="+" data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-xs text-beige-200/80 sm:text-sm">More new-patient enquiries in 9 months</dt>
+                    </div>
+                    <div>
+                        <dd class="font-serif text-3xl font-300 text-gold-400 xs:text-4xl sm:text-5xl"><span class="counter" data-target="318"
+                                data-prefix="+" data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-xs text-beige-200/80 sm:text-sm">Lift in organic search visibility</dt>
+                    </div>
+                    <div>
+                        <dd class="font-serif text-3xl font-300 text-gold-400 xs:text-4xl sm:text-5xl"><span class="counter" data-target="89"
+                                data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-xs text-beige-200/80 sm:text-sm">Client retention beyond year one</dt>
+                    </div>
+                    <div>
+                        <dd class="font-serif text-3xl font-300 text-gold-400 xs:text-4xl sm:text-5xl"><span class="counter" data-target="47"
+                                data-prefix="−" data-suffix="%">0%</span></dd>
+                        <dt class="mt-2 text-xs text-beige-200/80 sm:text-sm">Lower cost per booked patient</dt>
+                    </div>
+                </dl>
+
+                <figure class="reveal mt-10 flex flex-wrap items-center gap-4 border-t border-beige-50/15 pt-6">
+                    <img class="h-12 w-12 rounded-full object-cover grayscale" loading="lazy"
+                        src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"
+                        alt="Medical director portrait" />
+                    <blockquote class="max-w-2xl font-serif text-base font-300 italic leading-snug sm:text-lg">&ldquo;Our
+                        OPD footfall tripled, and we finally know which campaign every patient came from.&rdquo;
+                        <span
+                            class="mt-1 block font-sans text-[11px] font-medium uppercase not-italic tracking-widest text-beige-200/60">Medical
+                            Director — Hospital partner</span>
+                    </blockquote>
+                </figure>
+            </div>
+        </section>
 
         <!-- ============================ WORK SCREENSHOTS SHOWCASE (5 columns) ============================ -->
         <section id="work" class="border-b border-teal-600/10" aria-labelledby="work-heading">
@@ -1021,39 +1094,49 @@
                             <span class="carousel-dots hidden gap-1 md:mt-4" aria-hidden="true"></span>
                         </div>
                         <div
-                            class="work-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:snap-none md:gap-5 md:overflow-visible md:pb-0">
+                            class="work-track flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-2 lg:grid-cols-4 md:snap-none md:gap-4 md:overflow-visible md:pb-0">
                             <figure
                                 class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
                                 <div class="overflow-hidden"><img
                                         class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
-                                        src="assets/ad1.webp" alt="Healthcare ad campaign creative" /></div>
+                                        src="assets/ad1_unique.png" alt="Google Search Ads campaign dashboard mockup" /></div>
                                 <figcaption
                                     class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
-                                    <p class="font-serif text-sm font-400">Google Ads</p>
-                                    <p class="mt-0.5 text-[11px] text-beige-200/80">High-intent search campaign</p>
+                                    <p class="font-serif text-sm font-400">Google Search Ads</p>
+                                    <p class="mt-0.5 text-[11px] text-beige-200/80">High-intent keyword campaign dashboard</p>
                                 </figcaption>
                             </figure>
                             <figure
                                 class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
                                 <div class="overflow-hidden"><img
                                         class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
-                                        src="assets/ad2.webp" alt="Meta ad campaign creative" /></div>
+                                        src="assets/meta_ads_dashboard.jpeg" alt="Meta Ads Manager campaign performance dashboard" /></div>
                                 <figcaption
                                     class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
-                                    <p class="font-serif text-sm font-400">Meta Ads</p>
-                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Facebook &amp; Instagram creative
-                                    </p>
+                                    <p class="font-serif text-sm font-400">Meta Ads Manager</p>
+                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Patient lead acquisition &amp; ad set results</p>
                                 </figcaption>
                             </figure>
                             <figure
                                 class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
                                 <div class="overflow-hidden"><img
                                         class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
-                                        src="assets/ad3.webp" alt="Performance ad campaign result" /></div>
+                                        src="assets/ad2_unique.png" alt="Meta Instagram healthcare sponsored ad creative" /></div>
                                 <figcaption
                                     class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
-                                    <p class="font-serif text-sm font-400">Performance</p>
-                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Campaign that books patients</p>
+                                    <p class="font-serif text-sm font-400">Meta Sponsored Ad</p>
+                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Patient acquisition social creative</p>
+                                </figcaption>
+                            </figure>
+                            <figure
+                                class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
+                                <div class="overflow-hidden"><img
+                                        class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
+                                        src="assets/ad3_unique.png" alt="Multi-channel healthcare ROI analytics" /></div>
+                                <figcaption
+                                    class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
+                                    <p class="font-serif text-sm font-400">Multi-Channel Funnel</p>
+                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Tracked appointment ROI dashboard</p>
                                 </figcaption>
                             </figure>
                         </div>
@@ -1084,34 +1167,34 @@
                                 class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
                                 <div class="overflow-hidden"><img
                                         class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
-                                        src="assets/seo1.webp" alt="Healthcare SEO keyword ranking result" /></div>
+                                        src="assets/seo1_unique.png" alt="Google Maps local 3-pack #1 ranking result" /></div>
                                 <figcaption
                                     class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
-                                    <p class="font-serif text-sm font-400">Keyword rankings</p>
-                                    <p class="mt-0.5 text-[11px] text-beige-200/80">High-intent medical searches</p>
+                                    <p class="font-serif text-sm font-400">Local Map Pack</p>
+                                    <p class="mt-0.5 text-[11px] text-beige-200/80">#1 Google Business Profile ranking</p>
                                 </figcaption>
                             </figure>
                             <figure
                                 class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
                                 <div class="overflow-hidden"><img
                                         class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
-                                        src="assets/seo2.webp" alt="Google Business Profile map-pack SEO result" />
+                                        src="assets/seo2_unique.png" alt="Medical keyword ranking growth chart" />
                                 </div>
                                 <figcaption
                                     class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
-                                    <p class="font-serif text-sm font-400">Local map-pack</p>
-                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Google Business Profile</p>
+                                    <p class="font-serif text-sm font-400">Keyword Positions</p>
+                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Page-1 medical search rankings</p>
                                 </figcaption>
                             </figure>
                             <figure
                                 class="shot img-host group relative w-[86%] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-white shadow-sm md:w-auto">
                                 <div class="overflow-hidden"><img
                                         class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
-                                        src="assets/seo3.webp" alt="Organic search traffic growth result" /></div>
+                                        src="assets/seo3_unique.png" alt="Google Search Console traffic analytics" /></div>
                                 <figcaption
                                     class="shot-cap absolute inset-x-0 bottom-0 bg-teal-700/95 px-4 py-3 text-beige-50">
-                                    <p class="font-serif text-sm font-400">Organic growth</p>
-                                    <p class="mt-0.5 text-[11px] text-beige-200/80">Search Console results</p>
+                                    <p class="font-serif text-sm font-400">Search Console</p>
+                                    <p class="mt-0.5 text-[11px] text-beige-200/80">+318% Organic search growth</p>
                                 </figcaption>
                             </figure>
                         </div>
@@ -1508,61 +1591,6 @@
             </div>
         </section>
 
-        <!-- ============================ RESULTS (parallax) ============================ -->
-        <section id="results" class="relative overflow-hidden border-b border-teal-600/10 bg-teal-700 text-beige-50"
-            aria-labelledby="results-heading">
-            <div class="px-wrap absolute inset-0" aria-hidden="true">
-                <img class="h-[130%] w-full object-cover opacity-[0.42] grayscale" data-pximg="0.15" loading="lazy"
-                    src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="" />
-                <div class="absolute inset-0 bg-gradient-to-b from-teal-700/60 via-transparent to-teal-900/70"></div>
-            </div>
-
-            <div class="relative mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
-                <div class="reveal mb-10 max-w-xl">
-                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Proof, Not Promises
-                    </p>
-                    <h2 id="results-heading" class="mt-3 font-serif text-3xl font-300 leading-tight sm:text-4xl">Numbers
-                        our partners wake up to</h2>
-                </div>
-
-                <dl class="reveal grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-                    <div>
-                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="212"
-                                data-prefix="+" data-suffix="%">0%</span></dd>
-                        <dt class="mt-2 text-sm text-beige-200/80">More new-patient enquiries in 9 months</dt>
-                    </div>
-                    <div>
-                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="318"
-                                data-prefix="+" data-suffix="%">0%</span></dd>
-                        <dt class="mt-2 text-sm text-beige-200/80">Lift in organic search visibility</dt>
-                    </div>
-                    <div>
-                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="89"
-                                data-suffix="%">0%</span></dd>
-                        <dt class="mt-2 text-sm text-beige-200/80">Client retention beyond year one</dt>
-                    </div>
-                    <div>
-                        <dd class="font-serif text-5xl font-300 text-gold-400"><span class="counter" data-target="47"
-                                data-prefix="−" data-suffix="%">0%</span></dd>
-                        <dt class="mt-2 text-sm text-beige-200/80">Lower cost per booked patient</dt>
-                    </div>
-                </dl>
-
-                <figure class="reveal mt-12 flex flex-wrap items-center gap-5 border-t border-beige-50/15 pt-8">
-                    <img class="h-14 w-14 rounded-full object-cover grayscale" loading="lazy"
-                        src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"
-                        alt="Medical director portrait" />
-                    <blockquote class="max-w-2xl font-serif text-lg font-300 italic leading-snug sm:text-xl">&ldquo;Our
-                        OPD footfall tripled, and we finally know which campaign every patient came from.&rdquo;
-                        <span
-                            class="mt-2 block font-sans text-[11px] font-medium uppercase not-italic tracking-widest text-beige-200/60">Medical
-                            Director — Hospital partner, Delhi NCR</span>
-                    </blockquote>
-                </figure>
-            </div>
-        </section>
-
         <!-- ============================ FAQ (compact) ============================ -->
         <section class="border-b border-teal-600/10 bg-beige-100" aria-labelledby="faq-heading">
             <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-20">
@@ -1660,21 +1688,32 @@
             <div class="relative mx-auto max-w-7xl px-5 py-16 text-center lg:px-8 lg:py-20">
                 <p class="reveal text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Free · 30 minutes ·
                     No obligation</p>
-                <h2 class="reveal mx-auto mt-4 max-w-2xl font-serif text-3xl font-300 leading-tight sm:text-5xl"
+                <h2 class="reveal mx-auto mt-4 max-w-2xl font-serif text-2xl xs:text-3xl font-300 leading-tight sm:text-5xl"
                     style="--rd:80ms">Your next 1,000 patients are searching right now.</h2>
-                <p class="reveal mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-beige-200/75"
+                <p class="reveal mx-auto mt-4 max-w-lg text-sm xs:text-[15px] leading-relaxed text-beige-200/75"
                     style="--rd:140ms">Book a free practice audit and see exactly where patients are slipping away.</p>
-                <div class="reveal mt-8 flex flex-wrap justify-center gap-4" style="--rd:200ms">
+                <div class="reveal mt-8 flex flex-col xs:flex-row justify-center items-stretch xs:items-center gap-3.5" style="--rd:200ms">
                     <a href="#lead-form"
-                        class="btn inline-flex items-center gap-2 rounded-full border border-gold-400 bg-gold-400 px-8 py-4 text-sm font-medium text-teal-900"
+                        class="btn inline-flex justify-center items-center gap-2 rounded-full border border-gold-400 bg-gold-400 px-8 py-3.5 text-sm font-medium text-teal-900 w-full xs:w-auto"
                         style="--fill:#FBF8F1">Book My Free Audit <span class="arr" aria-hidden="true">→</span></a>
                     <a href="tel:+918377009395"
-                        class="btn inline-flex items-center gap-2 rounded-full border border-beige-50/50 px-8 py-4 text-sm font-medium text-beige-50"
+                        class="btn inline-flex justify-center items-center gap-2 rounded-full border border-beige-50/50 px-8 py-3.5 text-sm font-medium text-beige-50 w-full xs:w-auto"
                         style="--fill:#1F433F">Call +91 83770 09395</a>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- ============================ STICKY MOBILE CTA BAR ============================ -->
+    <div id="sticky-mobile-cta" class="fixed bottom-0 inset-x-0 z-40 flex items-center justify-between gap-3 border-t border-teal-600/15 bg-beige-50/95 p-3 pb-4 shadow-[0_-10px_25px_-5px_rgba(22,51,48,0.15)] backdrop-blur-md lg:hidden transition-transform duration-300 translate-y-full" aria-label="Mobile quick actions">
+        <a href="tel:+918377009395" class="flex items-center justify-center gap-1.5 rounded-xl border border-teal-600/25 bg-beige-100 px-4 py-2.5 text-xs font-semibold text-teal-700 w-1/3 active:scale-95 transition-transform">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call
+        </a>
+        <a href="#lead-form" class="btn flex items-center justify-center gap-1.5 rounded-xl border border-teal-600 bg-teal-600 px-4 py-2.5 text-xs font-semibold text-beige-50 flex-1 shadow-sm active:scale-95 transition-transform" style="--fill:#C99B5B">
+            Book Free Audit <span class="arr" aria-hidden="true">→</span>
+        </a>
+    </div>
 
     <!-- ============================ FOOTER ============================ -->
     <footer class="bg-teal-900 text-beige-50/80">
@@ -1739,6 +1778,16 @@
                 mb.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
             });
             mm.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mm.classList.add('hidden'); mb.setAttribute('aria-expanded', 'false'); }));
+
+            // sticky mobile CTA bar reveal
+            const smBar = document.getElementById('sticky-mobile-cta');
+            const toggleSmBar = () => {
+                if (!smBar) return;
+                const pastHero = window.scrollY > 350;
+                smBar.classList.toggle('translate-y-full', !pastHero);
+            };
+            addEventListener('scroll', toggleSmBar, { passive: true });
+            toggleSmBar();
 
             // Broken-image fallback: any image that fails to load gets a labeled placeholder
             // instead of collapsing to nothing (uses its alt text).
