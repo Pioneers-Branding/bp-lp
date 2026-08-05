@@ -1,0 +1,12 @@
+Drop your images and files in this "assets" folder, then reference them from index.html.
+
+Suggested files:
+- my-photo.jpg               → your professional portrait (hero photo, portrait ratio ~4:5)
+- og-image.jpg               → social share image, 1200 x 630 px
+- Satyam-Rai-Resume.pdf      → your resume (Download Resume button)
+- client logos               → e.g. raj-hospitals.png, gnathos-dental.png ...
+- project screenshots        → e.g. visioneyecentre.jpg ...
+- ranking / analytics / GBP screenshots for the Gallery & Case Studies
+
+To use one, replace the matching grey placeholder box in index.html with:
+  <img src="assets/your-file.jpg" alt="describe the image" loading="lazy" />

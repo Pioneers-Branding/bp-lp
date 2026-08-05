@@ -54,6 +54,7 @@
         html,
         body {
             overflow-x: hidden;
+            overflow-x: clip;
             width: 100%;
         }
 
@@ -431,19 +432,16 @@
                 padding: 0;
                 overflow: hidden;
                 display: flex;
-                align-items: center;
-            }
-
-            .svc-viewport {
+                align-items: flex-end;
                 background: #0E2523;
             }
 
             .svc-head {
                 position: absolute;
-                top: 3.2rem;
+                top: 3.5rem;
                 left: 4vw;
                 z-index: 10;
-                width: min(30rem, 28vw);
+                width: min(28rem, 26vw);
                 max-width: none;
                 padding: 0;
                 pointer-events: none;
@@ -455,11 +453,13 @@
             }
 
             .svc-track {
+                display: flex;
                 overflow: visible;
                 scroll-snap-type: none;
-                gap: 22px;
-                padding: 0 6vw 0 34vw;
-                align-items: center;
+                gap: 24px;
+                padding: 0 5vw 2.5rem 34vw;
+                align-items: flex-end;
+                margin-top: 0 !important;
                 will-change: transform;
             }
 
@@ -652,11 +652,19 @@
                 </span>
             </a>
 
-            <ul class="hidden items-center gap-9 text-[13px] font-medium text-teal-500 lg:flex">
+            <ul class="hidden items-center gap-8 text-[13px] font-medium text-teal-500 lg:flex">
                 <li><a class="ul-anim hover:text-teal-700" href="#results">Results</a></li>
                 <li><a class="ul-anim hover:text-teal-700" href="#work">Our Work</a></li>
+                <li><a class="ul-anim hover:text-teal-700" href="#case-studies">Case Studies</a></li>
                 <li><a class="ul-anim hover:text-teal-700" href="#segments">Who We Help</a></li>
                 <li><a class="ul-anim hover:text-teal-700" href="#services">Services</a></li>
+                <li>
+                    <a class="inline-flex items-center gap-1.5 font-semibold text-gold-500 hover:text-gold-400 transition-colors"
+                       href="Branding%20Pioneers%20Company%20Profile_compressed.pdf" target="_blank" rel="noopener">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span>Company Profile</span>
+                    </a>
+                </li>
             </ul>
 
             <a href="#lead-form"
@@ -677,8 +685,10 @@
             <ul class="divide-y divide-teal-600/10 text-sm font-medium">
                 <li><a class="block py-3.5" href="#results">Results</a></li>
                 <li><a class="block py-3.5" href="#work">Our Work</a></li>
+                <li><a class="block py-3.5" href="#case-studies">Case Studies</a></li>
                 <li><a class="block py-3.5" href="#segments">Who We Help</a></li>
                 <li><a class="block py-3.5" href="#services">Services</a></li>
+                <li><a class="flex items-center justify-between py-3.5 font-semibold text-gold-500" href="Branding%20Pioneers%20Company%20Profile_compressed.pdf" target="_blank" rel="noopener"><span>Company Profile PDF</span> <span>→</span></a></li>
                 <li class="pt-4"><a href="#lead-form"
                         class="block rounded-full bg-teal-600 px-5 py-3 text-center text-beige-50">Book Free Audit →</a>
                 </li>
@@ -713,6 +723,18 @@
                         We build the marketing engine for doctors, clinics &amp; hospitals — search, ads and AI
                         follow-up that turn enquiries into filled appointment slots.
                     </p>
+
+                    <!-- Official Deck CTA button in hero -->
+                    <div class="hero-fade mt-5 flex flex-wrap items-center gap-3" style="--fd:.42s">
+                        <a href="Branding%20Pioneers%20Company%20Profile_compressed.pdf" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 rounded-xl border border-gold-500/35 bg-gold-400/10 px-4 py-2.5 text-xs font-semibold text-teal-700 hover:bg-gold-400/20 hover:border-gold-500 transition-all shadow-sm">
+                            <svg class="text-gold-500" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                            <span>Download Official Company Profile (PDF)</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </div>
 
                     <!-- trust stats -->
                     <dl class="hero-fade mt-8 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-4 text-center sm:text-left" style="--fd:.5s">
@@ -837,6 +859,50 @@
                         class="mx-6 not-italic text-gold-400">✦</i>Neurology<i
                         class="mx-6 not-italic text-gold-400">✦</i>Hospitals<i
                         class="mx-6 not-italic text-gold-400">✦</i></span>
+            </div>
+        </div>
+
+        <!-- ============================ CLIENT LOGOS MARQUEE ============================ -->
+        <div class="mq overflow-hidden border-b border-teal-600/10 bg-white py-6" aria-label="Clients we work with">
+            <div class="mx-auto max-w-7xl px-5 lg:px-8">
+                <p class="text-center text-[10px] font-semibold uppercase tracking-widest2 text-teal-400">Trusted by
+                    leading healthcare brands</p>
+            </div>
+            <div class="mq-track flex w-max items-center gap-14 py-4 pl-8" style="--s:45s;">
+                <span class="flex items-center gap-14">
+                    <img src="assets/assets/logos/bharatmedicalhall.com.png" alt="Bharat Medical Hall" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/drankitalaparoscopy.in.png" alt="Dr. Ankit A Laparoscopy" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/drarunsaroha.com.png" alt="Dr. Arun Saroha" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/embracelives.com.png" alt="Embrace Lives" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/gnathosface.com.png" alt="Gnathos Facial" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/impactorthocenter.com.png" alt="Impact Ortho Center" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/lchafrica.com.png" alt="LCH Africa" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/rajhospitals.com.png" alt="Raj Hospitals" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/spineandbrainindia.com.png" alt="Spine &amp; Brain India" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/theaesthetic.in.png" alt="The Aesthetic" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/thedinktheory.com.png" alt="The Dink Theory" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/www.globescott.net.png" alt="Globe Scott" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/www.gnathosdental.in.png" alt="Gnathos Dental" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/www.sankalphospital.com.png" alt="Sankalp Hospital" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                    <img src="assets/assets/logos/www.visioneyecentre.com.png" alt="Vision Eye Centre" class="h-8 w-auto object-contain opacity-55 grayscale" transition duration-500 hover:opacity-100 hover:grayscale-0" />
+                </span>
+                <span class="flex items-center gap-14" aria-hidden="true">
+                    <img src="assets/assets/logos/bharatmedicalhall.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/drankitalaparoscopy.in.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/drarunsaroha.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/embracelives.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/gnathosface.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/impactorthocenter.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/lchafrica.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/rajhospitals.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/spineandbrainindia.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/theaesthetic.in.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/thedinktheory.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/www.globescott.net.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/www.gnathosdental.in.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/www.sankalphospital.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                    <img src="assets/assets/logos/www.visioneyecentre.com.png" alt="" class="h-8 w-auto object-contain opacity-55 grayscale"" />
+                </span>
             </div>
         </div>
 
@@ -1393,6 +1459,284 @@
             </div>
         </section>
 
+        <!-- ============================ LOCAL SEO RANKINGS (GMB screenshots) ============================ -->
+        <section id="rankings" class="border-b border-teal-600/10 bg-beige-100" aria-labelledby="rankings-heading">
+            <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+                <div class="reveal mb-10 max-w-2xl">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Live Google Map Pack Proof
+                    </p>
+                    <h2 id="rankings-heading"
+                        class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl lg:text-5xl">
+                        #1 map-pack rankings we hold today</h2>
+                    <p class="mt-3 text-sm leading-relaxed text-teal-500">
+                        Screenshots straight from the live Google Business Profiles of the hospitals, clinics, and
+                        specialty practices we rank — the map pack our clients sit on top of, every day.
+                    </p>
+                </div>
+
+                <div class="reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="rankings-grid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Load More / Load Less -->
+                <div class="reveal mt-9 flex justify-center" id="rankings-load-more-wrap">
+                    <button type="button" id="rankings-load-more"
+                        class="hidden inline-flex items-center gap-2 rounded-full border border-teal-600/25 bg-white px-7 py-3 text-xs font-semibold text-teal-700 shadow-sm transition-all hover:border-teal-600 hover:bg-teal-50">
+                        <span id="rankings-load-more-label">Load More</span>
+                        <svg id="rankings-load-more-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" class="transition-transform duration-300">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox for ranking screenshots -->
+        <div id="rankings-lightbox"
+            class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-teal-950/90 p-4 backdrop-blur-sm"
+            role="dialog" aria-modal="true" aria-label="Ranking screenshot preview">
+            <button type="button" id="rankings-lightbox-close"
+                class="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full bg-beige-50/10 text-beige-50 transition-colors hover:bg-beige-50/20"
+                aria-label="Close preview">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <figure class="max-w-4xl">
+                <img id="rankings-lightbox-img" class="mx-auto max-h-[82vh] w-auto rounded-xl shadow-2xl" alt=""
+                    src="" />
+                <figcaption id="rankings-lightbox-name"
+                    class="mt-3 text-center font-serif text-lg text-beige-50"></figcaption>
+            </figure>
+        </div>
+
+        <!-- ============================ CLIENT GRAPHICS (creative & social) ============================ -->
+        <section id="client-graphics" class="border-b border-teal-600/10 bg-beige-50" aria-labelledby="graphics-heading">
+            <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+
+                <div class="reveal mb-10 max-w-2xl">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Creative &amp; Social
+                        Graphics</p>
+                    <h2 id="graphics-heading"
+                        class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl lg:text-5xl">
+                        Client graphics we design</h2>
+                    <p class="mt-3 text-sm leading-relaxed text-teal-500">
+                        Carousels, campaigns, and social creatives produced for healthcare brands — click any piece to
+                        view it full-size.
+                    </p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="reveal mb-8 flex flex-wrap items-center gap-2 border-b border-teal-600/10 pb-4"
+                    id="graphics-filter-tabs">
+                    <button data-filter="all"
+                        class="gfx-tab active rounded-full bg-teal-600 px-4 py-2 text-xs font-semibold text-beige-50 transition-all shadow-sm">
+                        All (24)
+                    </button>
+                    <button data-filter="apollo"
+                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
+                        Apollo Monsoon (7)
+                    </button>
+                    <button data-filter="manisha"
+                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
+                        Dr. Manisha Jain (7)
+                    </button>
+                    <button data-filter="peters"
+                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
+                        Dr. Peters (5)
+                    </button>
+                    <button data-filter="sankalp"
+                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
+                        Sankalp Social Media (5)
+                    </button>
+                </div>
+
+                <div class="reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="graphics-grid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Load More / Load Less -->
+                <div class="reveal mt-9 flex justify-center" id="graphics-load-more-wrap">
+                    <button type="button" id="graphics-load-more"
+                        class="hidden inline-flex items-center gap-2 rounded-full border border-teal-600/25 bg-white px-7 py-3 text-xs font-semibold text-teal-700 shadow-sm transition-all hover:border-teal-600 hover:bg-teal-50">
+                        <span id="graphics-load-more-label">Load More</span>
+                        <svg id="graphics-load-more-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" class="transition-transform duration-300">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox for client graphics -->
+        <div id="graphics-lightbox"
+            class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-teal-950/90 p-4 backdrop-blur-sm"
+            role="dialog" aria-modal="true" aria-label="Client graphic preview">
+            <button type="button" id="graphics-lightbox-close"
+                class="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full bg-beige-50/10 text-beige-50 transition-colors hover:bg-beige-50/20"
+                aria-label="Close preview">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <figure class="max-w-4xl">
+                <img id="graphics-lightbox-img" class="mx-auto max-h-[82vh] w-auto rounded-xl shadow-2xl" alt=""
+                    src="" />
+                <figcaption id="graphics-lightbox-name"
+                    class="mt-3 text-center font-serif text-lg text-beige-50"></figcaption>
+            </figure>
+        </div>
+
+        <!-- ============================ CLIENT VIDEOS ============================ -->
+        <section id="client-videos" class="border-b border-teal-600/10 bg-beige-50" aria-labelledby="videos-heading">
+            <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+
+                <div class="reveal mb-10 max-w-2xl">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Client Videos</p>
+                    <h2 id="videos-heading"
+                        class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl lg:text-5xl">
+                        Videos we produce for clients</h2>
+                    <p class="mt-3 text-sm leading-relaxed text-teal-500">
+                        Reels, doctor features, and explainers created for healthcare brands — tap any card to play it
+                        in place.
+                    </p>
+                </div>
+
+                <div class="reveal work-track flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+                    id="videos-row" aria-label="Client video showcase"></div>
+
+                <p class="reveal mt-3 text-center text-[11px] text-teal-400 md:hidden">Swipe to explore →</p>
+            </div>
+        </section>
+
+        <!-- Custom fullscreen client video player -->
+        <div id="video-modal"
+            class="hidden fixed inset-0 z-[300] flex flex-col bg-teal-950/95 backdrop-blur-sm"
+            role="dialog" aria-modal="true" aria-label="Client video player">
+            <div class="flex items-center justify-between gap-4 px-5 py-4 text-beige-50 sm:px-8">
+                <p id="video-modal-title" class="truncate font-serif text-base text-beige-50 sm:text-lg"></p>
+                <button type="button" id="video-modal-close"
+                    class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-beige-50/10 text-beige-50 transition-colors hover:bg-beige-50/20"
+                    aria-label="Close video">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center overflow-hidden px-3 pb-5" id="video-modal-stage">
+                <video id="video-modal-player"
+                    class="object-contain"
+                    style="max-width: 100%; max-height: calc(100vh - 96px); width: auto; height: auto;"
+                    controls playsinline></video>
+            </div>
+        </div>
+
+        <!-- ============================ CASE STUDIES (PDF Hub) ============================ -->
+        <section id="case-studies" class="border-b border-teal-600/10 bg-beige-50" aria-labelledby="case-studies-heading">
+            <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+
+                <!-- Featured Company Profile Banner -->
+                <div class="reveal mb-12 overflow-hidden rounded-3xl border border-gold-400/40 bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 p-7 sm:p-9 text-beige-50 shadow-xl relative">
+                    <div class="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-gold-400/15 blur-3xl" aria-hidden="true"></div>
+                    <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                        <div class="max-w-2xl">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="inline-flex items-center gap-1.5 rounded-full bg-gold-400/20 border border-gold-400/30 px-3 py-1 text-[11px] font-semibold text-gold-400 uppercase tracking-widest">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                    Official Agency Deck
+                                </span>
+                                <span class="text-xs text-beige-200/60 font-medium">PDF • 7.8 MB</span>
+                            </div>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-300 leading-tight text-beige-50">
+                                Branding Pioneers — Official Company Profile
+                            </h3>
+                            <p class="mt-2.5 text-xs sm:text-sm text-beige-200/80 leading-relaxed max-w-xl">
+                                Explore our agency infrastructure, healthcare specializations, client portfolio, and patient growth frameworks in our comprehensive company profile deck.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-3 shrink-0">
+                            <a href="Branding%20Pioneers%20Company%20Profile_compressed.pdf" target="_blank" rel="noopener"
+                               class="btn inline-flex items-center gap-2 rounded-xl border border-gold-400 bg-gold-400 px-6 py-3 text-xs font-semibold text-teal-900 shadow-md transition-all" style="--fill:#FBF8F1">
+                                <span>View Company Profile</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <a href="Branding%20Pioneers%20Company%20Profile_compressed.pdf" download
+                               class="inline-flex items-center gap-2 rounded-xl border border-beige-50/25 bg-white/10 px-5 py-3 text-xs font-medium text-beige-50 hover:bg-white/20 transition-all">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                <span>Download PDF</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                    <div class="reveal max-w-2xl">
+                        <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Verified Proof &amp; Downloadable Audits</p>
+                        <h2 id="case-studies-heading"
+                            class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl lg:text-5xl">
+                            Client Case Studies</h2>
+                        <p class="mt-3 text-sm leading-relaxed text-teal-500">
+                            Download and review in-depth performance breakdowns, patient acquisition funnels, and marketing blueprints across 27 leading hospitals, specialty clinics, and healthcare brands.
+                        </p>
+                    </div>
+
+                    <!-- Live Search Input -->
+                    <div class="reveal w-full md:w-80">
+                        <label for="cs-search" class="sr-only">Search case studies</label>
+                        <div class="relative">
+                            <input id="cs-search" type="text" placeholder="Search by client, specialty, or keyword..."
+                                class="field w-full rounded-xl border border-teal-600/20 bg-white pl-10 pr-4 py-3 text-xs text-teal-700 shadow-sm focus:border-teal-600 focus:outline-none" />
+                            <svg class="absolute left-3.5 top-3.5 h-4 w-4 text-teal-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="reveal mb-8 flex flex-wrap items-center gap-2 border-b border-teal-600/10 pb-4" id="cs-filter-tabs">
+                    <button data-filter="all" class="cs-tab-btn active rounded-full bg-teal-600 px-4 py-2 text-xs font-semibold text-beige-50 transition-all shadow-sm">
+                        All (27)
+                    </button>
+                    <button data-filter="hospital" class="cs-tab-btn rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
+                        Hospitals &amp; Health Systems (10)
+                    </button>
+                    <button data-filter="clinic" class="cs-tab-btn rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
+                        Specialty Clinics (7)
+                    </button>
+                    <button data-filter="brand" class="cs-tab-btn rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
+                        Healthcare &amp; Corporate Brands (10)
+                    </button>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="reveal grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="cs-grid">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="cs-empty-state" class="hidden text-center py-12 rounded-2xl border border-dashed border-teal-600/20 bg-beige-100/50">
+                    <p class="font-serif text-lg text-teal-700">No case studies match your search</p>
+                    <p class="mt-1 text-xs text-teal-500">Try searching for another specialty, hospital name, or clear the search filter.</p>
+                </div>
+
+                <!-- Load More / Load Less -->
+                <div class="reveal mt-9 flex justify-center" id="cs-load-more-wrap">
+                    <button type="button" id="cs-load-more"
+                        class="hidden inline-flex items-center gap-2 rounded-full border border-teal-600/25 bg-white px-7 py-3 text-xs font-semibold text-teal-700 shadow-sm transition-all hover:border-teal-600 hover:bg-teal-50">
+                        <span id="cs-load-more-label">Load More</span>
+                        <svg id="cs-load-more-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform duration-300">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- ============================ SEGMENTS ============================ -->
         <section id="segments" class="border-b border-teal-600/10 bg-beige-100" aria-labelledby="segments-heading">
             <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
@@ -1485,16 +1829,11 @@
         </section>
 
         <!-- ============================ SERVICES (horizontal scroll-scrub) ============================ -->
-        <!--
-          Desktop (lg+): section pins; vertical scroll drives the cards horizontally (immersive scrub).
-          Mobile/tablet: plain horizontal swipe row — no pin, no page-scroll hijack, no auto-scroll.
-        -->
         <section id="services" class="svc relative bg-teal-900 text-beige-50" aria-labelledby="services-heading">
             <div class="svc-viewport">
                 <!-- heading rail -->
                 <div class="svc-head">
-                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Full-Service Digital
-                        Marketing</p>
+                    <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-400">Full-Service Digital Marketing</p>
                     <h2 id="services-heading"
                         class="mt-2 w-full max-w-7xl font-serif text-2xl font-300 leading-tight sm:text-3xl lg:text-4xl">
                         Everything your practice needs to grow</h2>
@@ -1508,7 +1847,7 @@
                 </div>
 
                 <!-- horizontal track -->
-                <ol class="svc-track md:mt-72" role="list">
+                <ol class="svc-track" role="list">
                     <li class="svc-card" data-i="1">
                         <div class="svc-img"><img src="assets/services/seo.webp" alt="Healthcare SEO" loading="lazy" />
                         </div>
@@ -1735,6 +2074,7 @@
                 <h3 class="text-[10px] font-semibold uppercase tracking-widest2 text-beige-50">Explore</h3>
                 <ul class="mt-4 space-y-2.5 text-[13px]">
                     <li><a class="ul-anim hover:text-beige-50" href="#work">Our Work</a></li>
+                    <li><a class="ul-anim hover:text-beige-50" href="#case-studies">Case Studies</a></li>
                     <li><a class="ul-anim hover:text-beige-50" href="#services">Services</a></li>
                     <li><a class="ul-anim hover:text-beige-50" href="#results">Results</a></li>
                     <li><a class="ul-anim hover:text-beige-50" href="#lead-form">Book Audit</a></li>
@@ -1914,10 +2254,13 @@
                 let maxShift = 0;
 
                 const measure = () => {
-                    // total horizontal distance the track must travel
-                    maxShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
-                    // the section is tall enough to give that travel some scroll room
                     if (isDesktop() && !reduce) {
+                        // Calculate how far the last card's right edge extends beyond the viewport
+                        const lastCard = cards[cards.length - 1];
+                        const lastCardRight = lastCard.offsetLeft + lastCard.offsetWidth;
+                        const rightPad = parseFloat(getComputedStyle(track).paddingRight) || 0;
+                        maxShift = Math.max(0, lastCardRight + rightPad - viewport.clientWidth);
+                        // Section height = viewport + just enough scroll to reveal the last card
                         section.style.height = (viewport.clientHeight + maxShift) + 'px';
                     } else {
                         section.style.height = '';
@@ -1933,6 +2276,7 @@
                     requestAnimationFrame(() => {
                         ticking = false;
                         if (!isDesktop() || reduce) return;
+
                         const rect = section.getBoundingClientRect();
                         const scrollable = section.offsetHeight - viewport.clientHeight;
                         const passed = Math.min(Math.max(-rect.top, 0), scrollable);
@@ -1949,6 +2293,7 @@
                 measure();
                 addEventListener('scroll', onScroll, { passive: true });
                 addEventListener('resize', () => { measure(); onScroll(); }, { passive: true });
+                addEventListener('load', () => { measure(); onScroll(); }, { passive: true });
                 matchMedia('(min-width: 1024px)').addEventListener('change', () => { measure(); onScroll(); });
                 onScroll();
             })();
@@ -1997,6 +2342,529 @@
                     });
                 });
             }
+
+            // ===================== CASE STUDIES FILTER & RENDER =====================
+            (function initCaseStudies() {
+                const caseStudiesData = [
+                    { title: "Medanta - The Medicity", category: "hospital", catName: "Hospital Network", pdf: "Casestudies/Medanta CaseStudy.pdf", size: "5.5 MB", desc: "OPD footfall expansion, search engine authority & patient acquisition funnel." },
+                    { title: "Apollo Healthcare Group", category: "hospital", catName: "Hospital Network", pdf: "Casestudies/Apollo Casestudy.pdf", size: "14.0 MB", desc: "Multi-specialty patient funnel, performance ads & digital brand positioning." },
+                    { title: "Cloudnine Hospitals", category: "hospital", catName: "Maternity & Paediatrics", pdf: "Casestudies/Cloudnine Casestudy.pdf", size: "8.3 MB", desc: "Maternity & childcare appointment acquisition funnel & local search domination." },
+                    { title: "AIIMS Geriatric Care", category: "hospital", catName: "Super-Specialty", pdf: "Casestudies/AIIMS Geriatric Casestudy.pdf", size: "2.8 MB", desc: "Specialized geriatric healthcare awareness & patient outreach campaign." },
+                    { title: "Saudi German Health", category: "hospital", catName: "Hospital Network", pdf: "Casestudies/Saudi German Casestudy.pdf", size: "3.6 MB", desc: "International patient acquisition & multi-regional digital campaign strategy." },
+                    { title: "IVY Hospital Network", category: "hospital", catName: "Hospital Network", pdf: "Casestudies/IVY Casestudy.pdf", size: "7.7 MB", desc: "Regional hospital network visibility, lead conversion & brand awareness." },
+                    { title: "Rainbow & Rosewalk Hospitals", category: "hospital", catName: "Women & Child Care", pdf: "Casestudies/RainBow-Rosewalk Casestudy.pdf", size: "7.7 MB", desc: "Premium boutique maternity & paediatric hospital patient funnel." },
+                    { title: "Little Stars & She Hospital", category: "hospital", catName: "Mother & Child Care", pdf: "Casestudies/Little Stars and She Casestudy.pdf", size: "6.9 MB", desc: "Pediatric & gynaecology practice growth engine & appointment funnel." },
+                    { title: "IGEHRC Eye Hospitals", category: "hospital", catName: "Ophthalmology", pdf: "Casestudies/IGEHRC Casestudy.pdf", size: "8.7 MB", desc: "Eye care super-specialty patient acquisition & community outreach." },
+                    { title: "NeelKanth Hospital", category: "hospital", catName: "Multi-Specialty", pdf: "Casestudies/NeelKanth Casestudy.pdf", size: "9.2 MB", desc: "Local hospital SEO, GMB optimization & patient lead generation." },
+                    { title: "Refine Skin & Body Clinic", category: "clinic", catName: "Dermatology & Aesthetics", pdf: "Casestudies/Refine Clinic Case Study.pdf", size: "4.9 MB", desc: "Aesthetic dermatology lead generation, social proof & patient bookings." },
+                    { title: "Influennz Derma Clinic", category: "clinic", catName: "Dermatology & Hair", pdf: "Casestudies/Influennz Casestudy.pdf", size: "4.2 MB", desc: "High-ticket aesthetic & hair transplant patient acquisition campaigns." },
+                    { title: "Skinfinity Aesthetic Clinic", category: "clinic", catName: "Dermatology & Aesthetics", pdf: "Casestudies/Skinfinity Casestudy.pdf", size: "5.1 MB", desc: "Cosmetic clinic brand positioning, Instagram Reels & ad funnels." },
+                    { title: "Estique Aesthetic Clinic", category: "clinic", catName: "Cosmetic Dermatology", pdf: "Casestudies/Estique Clinic CaseStudy.pdf", size: "6.9 MB", desc: "Local area dominance, GMB map-pack #1 ranking & patient conversions." },
+                    { title: "Dr. Prasunn Clinic", category: "clinic", catName: "Solo Practice", pdf: "Casestudies/Dr Prasunn CaseStudy.pdf", size: "2.7 MB", desc: "Doctor personal branding, patient trust & Google search campaign." },
+                    { title: "Marwah & Pahwa Clinic", category: "clinic", catName: "Multi-Doctor Clinic", pdf: "Casestudies/Marwah and Pahwah Casestudy.pdf", size: "3.2 MB", desc: "Polyclinic patient acquisition, local SEO & appointment booking." },
+                    { title: "Lifecare Medical Center", category: "clinic", catName: "Diagnostics & Care", pdf: "Casestudies/Lifecare Casestudy.pdf", size: "6.5 MB", desc: "Diagnostic OPD growth, wellness packages & digital marketing." },
+                    { title: "Unofin Health Finance", category: "brand", catName: "FinTech & Medical Care", pdf: "Casestudies/Unofin Case Study.pdf", size: "1.7 MB", desc: "Healthcare financial solutions, hospital partner acquisition & leads." },
+                    { title: "Ecovana Health", category: "brand", catName: "Wellness & Health", pdf: "Casestudies/Ecovana Casestudy.pdf", size: "3.0 MB", desc: "Sustainable wellness brand positioning & performance marketing." },
+                    { title: "Studio Emerge Wellness", category: "brand", catName: "Aesthetics & Wellness", pdf: "Casestudies/Studio Emerge Casestudy.pdf", size: "3.3 MB", desc: "Boutique wellness studio digital launch & client acquisition." },
+                    { title: "AstroBazar Wellness", category: "brand", catName: "Health & Lifestyle", pdf: "Casestudies/AstroBazar Casestudy.pdf", size: "7.7 MB", desc: "D2C wellness brand scaling, meta ad campaigns & customer retention." },
+                    { title: "Aureus University", category: "brand", catName: "Medical Education", pdf: "Casestudies/Aureus University Casestudy.pdf", size: "6.9 MB", desc: "Medical school student enrollment funnels & global digital outreach." },
+                    { title: "DST Industries", category: "brand", catName: "Healthcare Supply", pdf: "Casestudies/DST Industries Casestudy.pdf", size: "3.2 MB", desc: "B2B medical equipment & healthcare industry digital presence." },
+                    { title: "Lamidas Healthcare", category: "brand", catName: "Pharma & Wellness", pdf: "Casestudies/Lamidas Casestudy.pdf", size: "8.0 MB", desc: "Pharmaceutical brand positioning & multi-channel marketing." },
+                    { title: "Moldek Group", category: "brand", catName: "Corporate Healthcare", pdf: "Casestudies/Moldek Group Casestudy.pdf", size: "6.9 MB", desc: "Healthcare conglomerate brand identity & digital transformation." },
+                    { title: "Narang BioTech", category: "brand", catName: "BioTech & Pharma", pdf: "Casestudies/Narang BioTech Casestudy.pdf", size: "4.4 MB", desc: "Biomedical & research laboratory digital positioning & growth." },
+                    { title: "Power & Cooling Tech", category: "brand", catName: "Medical Infrastructure", pdf: "Casestudies/Power and Cooling Casestudy.pdf", size: "6.3 MB", desc: "Hospital infrastructure solutions & B2B digital lead generation." }
+                ];
+
+                const grid = document.getElementById('cs-grid');
+                const emptyState = document.getElementById('cs-empty-state');
+                const searchInput = document.getElementById('cs-search');
+                const filterBtns = document.querySelectorAll('#cs-filter-tabs .cs-tab-btn');
+                const loadMoreBtn = document.getElementById('cs-load-more');
+                const loadMoreLabel = document.getElementById('cs-load-more-label');
+                const loadMoreArrow = document.getElementById('cs-load-more-arrow');
+                if (!grid) return;
+
+                const ROWS = 3;
+                let currentFilter = 'all';
+                let currentSearch = '';
+                let showAll = false;
+
+                function gridCols() {
+                    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+                    return Math.max(1, cols);
+                }
+
+                function updateLoadMore(total) {
+                    if (!loadMoreBtn) return;
+                    if (total <= gridCols() * ROWS) {
+                        loadMoreBtn.classList.add('hidden');
+                        return;
+                    }
+                    loadMoreBtn.classList.remove('hidden');
+                    loadMoreLabel.textContent = showAll ? 'Load Less' : 'Load More';
+                    if (loadMoreArrow) loadMoreArrow.classList.toggle('rotate-180', showAll);
+                }
+
+                function render() {
+                    const filtered = caseStudiesData.filter(item => {
+                        const matchesCat = (currentFilter === 'all') || (item.category === currentFilter);
+                        const query = currentSearch.toLowerCase();
+                        const matchesSearch = !query || 
+                            item.title.toLowerCase().includes(query) || 
+                            item.catName.toLowerCase().includes(query) || 
+                            item.desc.toLowerCase().includes(query);
+                        return matchesCat && matchesSearch;
+                    });
+
+                    if (filtered.length === 0) {
+                        grid.innerHTML = '';
+                        emptyState.classList.remove('hidden');
+                        if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+                        return;
+                    }
+
+                    emptyState.classList.add('hidden');
+                    const limit = gridCols() * ROWS;
+                    const items = showAll ? filtered : filtered.slice(0, limit);
+                    grid.innerHTML = items.map(item => `
+                        <article class="cs-card group flex flex-col justify-between rounded-2xl border border-teal-600/15 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-md">
+                            <div>
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="inline-flex items-center gap-1 rounded-full bg-teal-50 px-2.5 py-1 text-[11px] font-semibold text-teal-600 border border-teal-600/15">
+                                        ${item.catName}
+                                    </span>
+                                    <span class="inline-flex items-center gap-1 text-[11px] font-medium text-gold-500 bg-gold-400/10 px-2 py-0.5 rounded">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                        PDF • ${item.size}
+                                    </span>
+                                </div>
+                                <h3 class="font-serif text-xl font-400 text-teal-700 group-hover:text-teal-900 transition-colors leading-snug">
+                                    ${item.title}
+                                </h3>
+                                <p class="mt-2 text-xs leading-relaxed text-teal-500">
+                                    ${item.desc}
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-teal-600/10 flex items-center justify-between gap-3">
+                                <a href="${encodeURI(item.pdf)}" target="_blank" rel="noopener" class="btn inline-flex items-center gap-1.5 rounded-xl border border-teal-600 bg-teal-600 px-4 py-2 text-xs font-medium text-beige-50 transition-all" style="--fill:#C99B5B">
+                                    <span>View Case Study</span>
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <a href="${encodeURI(item.pdf)}" download class="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-teal-600/20 text-teal-600 hover:bg-teal-50 hover:border-teal-600 transition-colors" title="Download PDF">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </article>
+                    `).join('');
+                    updateLoadMore(filtered.length);
+                }
+
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        filterBtns.forEach(b => {
+                            b.classList.remove('active', 'bg-teal-600', 'text-beige-50', 'shadow-sm');
+                            b.classList.add('border', 'border-teal-600/20', 'bg-white', 'text-teal-700');
+                        });
+                        this.classList.remove('border', 'border-teal-600/20', 'bg-white', 'text-teal-700');
+                        this.classList.add('active', 'bg-teal-600', 'text-beige-50', 'shadow-sm');
+                        currentFilter = this.dataset.filter;
+                        showAll = false;
+                        render();
+                    });
+                });
+
+                if (searchInput) {
+                    searchInput.addEventListener('input', function() {
+                        currentSearch = this.value.trim();
+                        showAll = false;
+                        render();
+                    });
+                }
+
+                if (loadMoreBtn) {
+                    loadMoreBtn.addEventListener('click', function() {
+                        showAll = !showAll;
+                        render();
+                    });
+                }
+
+                let resizeT;
+                addEventListener('resize', () => {
+                    clearTimeout(resizeT);
+                    resizeT = setTimeout(() => { if (!showAll) render(); }, 150);
+                }, { passive: true });
+
+                render();
+            })();
+
+            // ===================== LOCAL SEO RANKINGS (GMB screenshots) =====================
+            (function initRankings() {
+                const rankings = [
+                    { name: "Bharat Medical Hall", img: "assets/assets/bharat medical hall.png" },
+                    { name: "Dr. Aloy Mukharji", img: "assets/assets/dr aloy mukharji .png" },
+                    { name: "Dr. Manoj K. Johar", img: "assets/assets/Dr. Manoj K Johar gmb.png" },
+                    { name: "Dr. P. Vijay Karan Reddy", img: "assets/assets/Dr. P. Vijay Karan Reddy gmb.png" },
+                    { name: "Dr. Tushar Grover", img: "assets/assets/Dr. Tushar Grover gmb.png" },
+                    { name: "Embrace Lives", img: "assets/assets/embrace lives .png" },
+                    { name: "Fertility Point", img: "assets/assets/Fertility Point gmb.png" },
+                    { name: "Gnathos Facial", img: "assets/assets/gnathos faical gmb.png" },
+                    { name: "Impact Ortho Center", img: "assets/assets/imact ortho center.png" },
+                    { name: "LCH Africa", img: "assets/assets/lch affrica.png" },
+                    { name: "LifeCare Multispeciality Hospitals", img: "assets/assets/LifeCare Multispeciality Hospitals gmb.png" },
+                    { name: "Prayag Hospital & Research Centre", img: "assets/assets/Prayag Hospital & Research Centre gmb.png" },
+                    { name: "Raj Hospitals", img: "assets/assets/Raj Hospitals gmb.png" },
+                    { name: "Refine Skin & Body Clinic", img: "assets/assets/refine and body clinic .png" },
+                    { name: "Sankalp Multispeciality Hospital", img: "assets/assets/Sankalp Multispeciality Hospital & Test Tube Baby Center gmb.png" },
+                    { name: "Shivalik Hospital", img: "assets/assets/Shivalik Hospital gmb.png" },
+                    { name: "Shri Sai Hospital", img: "assets/assets/Shri Sai Hospital gmb.png" },
+                    { name: "Spine & Brain India", img: "assets/assets/Spineandbrainindia.png" },
+                    { name: "The Aesthetic · Dr. Manoj K. Johar", img: "assets/assets/the aesthetci manoj k johar .png" },
+                    { name: "Vision Eye Centre", img: "assets/assets/Vision Eye Centre gmb.png" }
+                ];
+
+                const grid = document.getElementById('rankings-grid');
+                const loadMoreBtn = document.getElementById('rankings-load-more');
+                const loadMoreLabel = document.getElementById('rankings-load-more-label');
+                const loadMoreArrow = document.getElementById('rankings-load-more-arrow');
+                const lightbox = document.getElementById('rankings-lightbox');
+                const lightboxImg = document.getElementById('rankings-lightbox-img');
+                const lightboxName = document.getElementById('rankings-lightbox-name');
+                const lightboxClose = document.getElementById('rankings-lightbox-close');
+                if (!grid) return;
+
+                const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                const ROWS = 3;
+                let showAll = false;
+
+                function gridCols() {
+                    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+                    return Math.max(1, cols);
+                }
+
+                function updateLoadMore() {
+                    if (!loadMoreBtn) return;
+                    if (rankings.length <= gridCols() * ROWS) {
+                        loadMoreBtn.classList.add('hidden');
+                        return;
+                    }
+                    loadMoreBtn.classList.remove('hidden');
+                    loadMoreLabel.textContent = showAll ? 'Load Less' : 'Load More';
+                    if (loadMoreArrow) loadMoreArrow.classList.toggle('rotate-180', showAll);
+                }
+
+                function render() {
+                    const limit = gridCols() * ROWS;
+                    const items = showAll ? rankings : rankings.slice(0, limit);
+                    grid.innerHTML = items.map((r, i) => `
+                        <figure class="group cursor-zoom-in overflow-hidden rounded-2xl border border-teal-600/15 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-md" data-i="${i}">
+                            <div class="overflow-hidden border-b border-teal-600/10 bg-white">
+                                <img class="img-zoom block h-auto w-full object-contain object-top" loading="lazy"
+                                     src="${encodeURI(r.img)}" alt="Google Map Pack ranking for ${esc(r.name)}" />
+                            </div>
+                            <figcaption class="flex items-center justify-between gap-2 px-4 py-3">
+                                <span class="font-serif text-sm font-400 text-teal-700">${esc(r.name)}</span>
+                                <span class="shrink-0 text-[9px] font-semibold uppercase tracking-widest text-gold-500">Map
+                                    Pack</span>
+                            </figcaption>
+                        </figure>
+                    `).join('');
+                    updateLoadMore();
+                }
+
+                function openLightbox(item) {
+                    if (!lightbox || !lightboxImg) return;
+                    lightboxImg.src = encodeURI(item.img);
+                    lightboxImg.alt = 'Google Map Pack ranking for ' + item.name;
+                    if (lightboxName) lightboxName.textContent = item.name;
+                    lightbox.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeLightbox() {
+                    if (!lightbox) return;
+                    lightbox.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+
+                grid.addEventListener('click', function (e) {
+                    const fig = e.target.closest('[data-i]');
+                    if (!fig) return;
+                    const item = rankings[Number(fig.dataset.i)];
+                    if (item) openLightbox(item);
+                });
+
+                if (loadMoreBtn) {
+                    loadMoreBtn.addEventListener('click', function () {
+                        showAll = !showAll;
+                        render();
+                    });
+                }
+
+                if (lightboxClose) {
+                    lightboxClose.addEventListener('click', closeLightbox);
+                }
+                if (lightbox) {
+                    lightbox.addEventListener('click', function (e) {
+                        if (e.target === lightbox) closeLightbox();
+                    });
+                }
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') closeLightbox();
+                });
+
+                let resizeT;
+                addEventListener('resize', () => {
+                    clearTimeout(resizeT);
+                    resizeT = setTimeout(() => { if (!showAll) render(); }, 150);
+                }, { passive: true });
+
+                render();
+            })();
+
+            // ===================== CLIENT GRAPHICS (creative & social) =====================
+            (function initGraphics() {
+                const graphics = [
+                    // Apollo Monsoon
+                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/1.png" },
+                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/2.png" },
+                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/3.png" },
+                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/4.png" },
+                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/5.png" },
+                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/6.png" },
+                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/7.png" },
+                    // Dr. Manisha Jain carousel
+                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/15.png" },
+                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/16.png" },
+                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/17.png" },
+                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/18.png" },
+                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/19.png" },
+                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/20.png" },
+                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/21.png" },
+                    // Dr. Peters
+                    { client: "Dr. Peters", cat: "peters", img: "dr peters/1.png" },
+                    { client: "Dr. Peters", cat: "peters", img: "dr peters/2.png" },
+                    { client: "Dr. Peters", cat: "peters", img: "dr peters/3.png" },
+                    { client: "Dr. Peters", cat: "peters", img: "dr peters/4.png" },
+                    { client: "Dr. Peters", cat: "peters", img: "dr peters/5.png" },
+                    // Sankalp Social Media
+                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/31.png" },
+                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/32.png" },
+                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/33.png" },
+                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/34.png" },
+                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/35.png" }
+                ];
+
+                const grid = document.getElementById('graphics-grid');
+                const filterTabs = document.querySelectorAll('#graphics-filter-tabs .gfx-tab');
+                const loadMoreBtn = document.getElementById('graphics-load-more');
+                const loadMoreLabel = document.getElementById('graphics-load-more-label');
+                const loadMoreArrow = document.getElementById('graphics-load-more-arrow');
+                const lightbox = document.getElementById('graphics-lightbox');
+                const lightboxImg = document.getElementById('graphics-lightbox-img');
+                const lightboxName = document.getElementById('graphics-lightbox-name');
+                const lightboxClose = document.getElementById('graphics-lightbox-close');
+                if (!grid) return;
+
+                const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                const ROWS = 3;
+                let currentFilter = 'all';
+                let showAll = false;
+                let currentItems = [];
+
+                function gridCols() {
+                    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+                    return Math.max(1, cols);
+                }
+
+                function updateLoadMore(total) {
+                    if (!loadMoreBtn) return;
+                    if (total <= gridCols() * ROWS) {
+                        loadMoreBtn.classList.add('hidden');
+                        return;
+                    }
+                    loadMoreBtn.classList.remove('hidden');
+                    loadMoreLabel.textContent = showAll ? 'Load Less' : 'Load More';
+                    if (loadMoreArrow) loadMoreArrow.classList.toggle('rotate-180', showAll);
+                }
+
+                function render() {
+                    const filtered = currentFilter === 'all'
+                        ? graphics
+                        : graphics.filter(g => g.cat === currentFilter);
+                    if (filtered.length === 0) {
+                        grid.innerHTML = '';
+                        currentItems = [];
+                        if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+                        return;
+                    }
+                    const limit = gridCols() * ROWS;
+                    const items = showAll ? filtered : filtered.slice(0, limit);
+                    currentItems = items;
+                    grid.innerHTML = items.map((g, i) => `
+                        <figure class="group cursor-zoom-in overflow-hidden rounded-2xl border border-teal-600/15 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-md" data-i="${i}">
+                            <div class="overflow-hidden border-b border-teal-600/10 bg-white">
+                                <img class="img-zoom block h-auto w-full max-h-[24rem] object-contain object-top" loading="lazy"
+                                     src="${encodeURI(g.img)}" alt="${esc(g.client)} graphic" />
+                            </div>
+                            <figcaption class="flex items-center justify-between gap-2 px-4 py-3">
+                                <span class="font-serif text-sm font-400 text-teal-700">${esc(g.client)}</span>
+                                <span class="shrink-0 text-[9px] font-semibold uppercase tracking-widest text-gold-500">Graphic</span>
+                            </figcaption>
+                        </figure>
+                    `).join('');
+                    updateLoadMore(filtered.length);
+                }
+
+                function openLightbox(item) {
+                    if (!lightbox || !lightboxImg) return;
+                    lightboxImg.src = encodeURI(item.img);
+                    lightboxImg.alt = item.client + ' graphic';
+                    if (lightboxName) lightboxName.textContent = item.client;
+                    lightbox.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeLightbox() {
+                    if (!lightbox) return;
+                    lightbox.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+
+                filterTabs.forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        filterTabs.forEach(b => {
+                            b.classList.remove('active', 'bg-teal-600', 'text-beige-50', 'shadow-sm');
+                            b.classList.add('border', 'border-teal-600/20', 'bg-white', 'text-teal-700');
+                        });
+                        this.classList.remove('border', 'border-teal-600/20', 'bg-white', 'text-teal-700');
+                        this.classList.add('active', 'bg-teal-600', 'text-beige-50', 'shadow-sm');
+                        currentFilter = this.dataset.filter;
+                        showAll = false;
+                        render();
+                    });
+                });
+
+                grid.addEventListener('click', function (e) {
+                    const fig = e.target.closest('[data-i]');
+                    if (!fig) return;
+                    const item = currentItems[Number(fig.dataset.i)];
+                    if (item) openLightbox(item);
+                });
+
+                if (loadMoreBtn) {
+                    loadMoreBtn.addEventListener('click', function () {
+                        showAll = !showAll;
+                        render();
+                    });
+                }
+
+                if (lightboxClose) {
+                    lightboxClose.addEventListener('click', closeLightbox);
+                }
+                if (lightbox) {
+                    lightbox.addEventListener('click', function (e) {
+                        if (e.target === lightbox) closeLightbox();
+                    });
+                }
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') closeLightbox();
+                });
+
+                let resizeT;
+                addEventListener('resize', () => {
+                    clearTimeout(resizeT);
+                    resizeT = setTimeout(() => { if (!showAll) render(); }, 150);
+                }, { passive: true });
+
+                render();
+            })();
+
+            // ===================== CLIENT VIDEOS =====================
+            (function initVideos() {
+                const videos = [
+                    { title: "Do's & Don'ts of Embryo Transfer", src: "Videos/Do_s & Dont_s of embryo transfer.mp4" },
+                    { title: "Dr. Rwituja Thomas", src: "Videos/Dr rwituja thomas.mp4" },
+                    { title: "Dr. Tushar", src: "Videos/Dr tushar video.mp4" },
+                    { title: "Frequently Asked Questions", src: "Videos/Frequently asked questions (1).mp4" },
+                    { title: "IVF Misconceptions", src: "Videos/IVF Misconceptions (1).mp4" },
+                    { title: "Nephrotic Syndrome", src: "Videos/Video-48453.mp4" },
+                    { title: "IVF", src: "Videos/Video-75172.mp4" },
+                    { title: "Working of the Liver", src: "Videos/WhatsApp Video 2026-08-05 at 3.47.16 PM.mp4" }
+                ];
+
+                const row = document.getElementById('videos-row');
+                if (!row) return;
+
+                const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+                row.innerHTML = videos.map((v, i) => `
+                    <figure class="shot group relative aspect-[9/16] w-[150px] shrink-0 snap-center overflow-hidden rounded-xl border border-teal-600/10 bg-black sm:w-[180px]"
+                            data-vid="${i}">
+                        <video class="vid absolute inset-0 h-full w-full object-contain" preload="metadata" playsinline
+                               muted loop src="${encodeURI(v.src)}"></video>
+                        <div class="vid-over pointer-events-none absolute inset-0 bg-gradient-to-t from-teal-900/70 via-transparent to-transparent"></div>
+                        <button type="button" class="vid-play absolute inset-0 grid cursor-pointer place-items-center"
+                                aria-label="Play ${esc(v.title)}">
+                            <span class="grid h-11 w-11 place-items-center rounded-full bg-beige-50/90 text-teal-700 transition-transform duration-300 group-hover:scale-110"
+                                  aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"
+                                      fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+                        </button>
+                        <span class="absolute left-2.5 top-2.5 inline-flex items-center gap-1 rounded-full bg-gold-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-teal-900">Video</span>
+                        <figcaption class="vid-cap absolute inset-x-0 bottom-0 bg-teal-900/95 px-3 py-2 text-beige-50">
+                            <p class="font-serif text-[13px] leading-snug">${esc(v.title)}</p>
+                            <p class="mt-0.5 text-[10px] text-beige-200/80">Tap to play</p>
+                        </figcaption>
+                    </figure>
+                `).join('');
+
+                                const modal = document.getElementById('video-modal');
+                const modalPlayer = document.getElementById('video-modal-player');
+                const modalTitle = document.getElementById('video-modal-title');
+                const modalClose = document.getElementById('video-modal-close');
+
+                function openVideo(card) {
+                    const video = card.querySelector('.vid');
+                    if (!video || !modal || !modalPlayer) return;
+                    // Pause every other video in the row
+                    row.querySelectorAll('video').forEach(v => { if (v !== video && !v.paused) v.pause(); });
+                    modalPlayer.src = video.getAttribute('src');
+                    modalPlayer.currentTime = 0;
+                    if (modalTitle) {
+                        const capP = card.querySelector('.vid-cap p');
+                        modalTitle.textContent = capP ? capP.textContent : '';
+                    }
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    const p = modalPlayer.play();
+                    if (p && p.catch) p.catch(() => {});
+                }
+
+                function closeVideo() {
+                    if (!modal) return;
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    if (modalPlayer) {
+                        modalPlayer.pause();
+                        modalPlayer.removeAttribute('src');
+                        modalPlayer.load();
+                    }
+                }
+
+                row.addEventListener('click', function (e) {
+                    const card = e.target.closest('[data-vid]');
+                    if (card) openVideo(card);
+                });
+
+                if (modalClose) modalClose.addEventListener('click', closeVideo);
+                if (modal) {
+                    modal.addEventListener('click', function (e) {
+                        if (e.target === modal) closeVideo();
+                    });
+                }
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) closeVideo();
+                });
+            })();
         })();
     </script>
     <!-- CTA "Successful Cooperation" Lottie loader (standalone so nothing can short-circuit it) -->

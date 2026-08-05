@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head><title>Debug Services Section</title></head>
+<body>
+<h1>Services Section Debug</h1>
+<p>Open your index.html in a separate tab, then open this page. Or just paste this into the browser console on your index.html page:</p>
+<pre style="background:#111;color:#0f0;padding:20px;font-size:14px;overflow:auto;">
+// Paste this into the browser console on your landing page
+(function(){
+var s=document.getElementById('services');
+var v=s.querySelector('.svc-viewport');
+var t=s.querySelector('.svc-track');
+var c=t.children[0];
+var vs=getComputedStyle(v);
+var ts=getComputedStyle(t);
+var cs=getComputedStyle(c);
+var results = {
+  'Section height': s.offsetHeight + 'px (inline: ' + s.style.height + ')',
+  'Viewport height': v.offsetHeight + 'px',
+  'Viewport position': vs.position,
+  'Viewport display': vs.display,
+  'Viewport align-items': vs.alignItems,
+  'Viewport overflow': vs.overflow,
+  'Track height': t.offsetHeight + 'px',
+  'Track scrollWidth': t.scrollWidth + 'px',
+  'Track display': ts.display,
+  'Track align-items': ts.alignItems,
+  'Track padding': ts.padding,
+  'Card width': c.offsetWidth + 'px',
+  'Card height': c.offsetHeight + 'px',
+  'Card aspect-ratio': cs.aspectRatio,
+  'Card computed height': cs.height,
+  'Card flex': cs.flex,
+  'Window height': window.innerHeight + 'px',
+  'Window width': window.innerWidth + 'px',
+  'maxShift': (t.scrollWidth - v.clientWidth) + 'px',
+};
+console.table(results);
+alert(JSON.stringify(results, null, 2));
+})();
+</pre>
+</body>
+</html>
