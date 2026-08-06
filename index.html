@@ -605,6 +605,63 @@
             padding: .7rem 1.1rem;
         }
 
+        /* ---------- 3D Carousel ---------- */
+        .graphics-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(22, 51, 48, 0.12);
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transform-origin: center center;
+            box-shadow: 0 20px 40px -15px rgba(22, 51, 48, 0.25);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            will-change: transform, opacity;
+            transform-style: preserve-3d;
+        }
+
+        .graphics-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 1.1rem 1.4rem;
+            border-bottom: 1px solid rgba(22, 51, 48, 0.06);
+            background: #fff;
+            z-index: 2;
+        }
+
+        .graphics-card-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #FBF8F1;
+            border: 1px solid rgba(22, 51, 48, 0.15);
+            box-shadow: 0 2px 8px -2px rgba(22, 51, 48, 0.1);
+        }
+
+        .graphics-card-img-wrap {
+            flex: 1;
+            overflow: hidden;
+            background: #FBF8F1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .graphics-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
         @media (prefers-reduced-motion: reduce) {
 
             .reveal,
@@ -1513,59 +1570,32 @@
 
         <!-- ============================ CLIENT GRAPHICS (creative & social) ============================ -->
         <section id="client-graphics" class="border-b border-teal-600/10 bg-beige-50" aria-labelledby="graphics-heading">
-            <div class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
-
-                <div class="reveal mb-10 max-w-2xl">
+            <div class="mx-auto max-w-5xl px-5 py-14 lg:px-8 lg:py-20 flex flex-col items-center overflow-hidden">
+                <div class="reveal mb-10 max-w-2xl text-center">
                     <p class="text-[11px] font-semibold uppercase tracking-widest2 text-gold-500">Creative &amp; Social
                         Graphics</p>
                     <h2 id="graphics-heading"
                         class="mt-3 font-serif text-3xl font-300 leading-tight text-teal-700 sm:text-4xl lg:text-5xl">
                         Client graphics we design</h2>
                     <p class="mt-3 text-sm leading-relaxed text-teal-500">
-                        Carousels, campaigns, and social creatives produced for healthcare brands — click any piece to
-                        view it full-size.
+                        Carousels, campaigns, and social creatives produced for healthcare brands — click next to view more.
                     </p>
                 </div>
 
-                <!-- Filter Tabs -->
-                <div class="reveal mb-8 flex flex-wrap items-center gap-2 border-b border-teal-600/10 pb-4"
-                    id="graphics-filter-tabs">
-                    <button data-filter="all"
-                        class="gfx-tab active rounded-full bg-teal-600 px-4 py-2 text-xs font-semibold text-beige-50 transition-all shadow-sm">
-                        All (24)
-                    </button>
-                    <button data-filter="apollo"
-                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
-                        Apollo Monsoon (7)
-                    </button>
-                    <button data-filter="manisha"
-                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
-                        Dr. Manisha Jain (7)
-                    </button>
-                    <button data-filter="peters"
-                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
-                        Dr. Peters (5)
-                    </button>
-                    <button data-filter="sankalp"
-                        class="gfx-tab rounded-full border border-teal-600/20 bg-white px-4 py-2 text-xs font-semibold text-teal-700 hover:border-teal-600 transition-all">
-                        Sankalp Social Media (5)
-                    </button>
+                <!-- 3D Carousel Container -->
+                <div class="reveal relative w-full max-w-[320px] sm:max-w-md aspect-square mx-auto" style="perspective: 1200px;" id="graphics-carousel">
+                    <!-- Cards will be populated dynamically via JS -->
                 </div>
 
-                <div class="reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="graphics-grid">
-                    <!-- Populated dynamically via JS -->
-                </div>
-
-                <!-- Load More / Load Less -->
-                <div class="reveal mt-9 flex justify-center" id="graphics-load-more-wrap">
-                    <button type="button" id="graphics-load-more"
-                        class="hidden inline-flex items-center gap-2 rounded-full border border-teal-600/25 bg-white px-7 py-3 text-xs font-semibold text-teal-700 shadow-sm transition-all hover:border-teal-600 hover:bg-teal-50">
-                        <span id="graphics-load-more-label">Load More</span>
-                        <svg id="graphics-load-more-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" class="transition-transform duration-300">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
+                <!-- Carousel Controls -->
+                <div class="reveal mt-12 flex gap-4 justify-center items-center">
+                    <button id="graphics-prev" class="rounded-full border border-teal-600/20 bg-white p-3.5 text-teal-700 hover:bg-teal-50 hover:border-teal-600 transition-all shadow-sm" aria-label="Previous Graphic">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
                     </button>
+                    <button id="graphics-next" class="rounded-full bg-teal-600 p-3.5 text-beige-50 hover:bg-teal-700 transition-all shadow-sm" aria-label="Next Graphic">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
                 </div>
             </div>
         </section>
@@ -2624,102 +2654,112 @@
             // ===================== CLIENT GRAPHICS (creative & social) =====================
             (function initGraphics() {
                 const graphics = [
-                    // Apollo Monsoon
-                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/1.png" },
-                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/2.png" },
-                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/3.png" },
-                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/4.png" },
-                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/5.png" },
-                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/6.png" },
-                    { client: "Apollo Monsoon", cat: "apollo", img: "apollo-monsoon/7.png" },
-                    // Dr. Manisha Jain carousel
-                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/15.png" },
-                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/16.png" },
-                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/17.png" },
-                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/18.png" },
-                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/19.png" },
-                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/20.png" },
-                    { client: "Dr. Manisha Jain", cat: "manisha", img: "dr manisha jain carousel/21.png" },
-                    // Dr. Peters
-                    { client: "Dr. Peters", cat: "peters", img: "dr peters/1.png" },
-                    { client: "Dr. Peters", cat: "peters", img: "dr peters/2.png" },
-                    { client: "Dr. Peters", cat: "peters", img: "dr peters/3.png" },
-                    { client: "Dr. Peters", cat: "peters", img: "dr peters/4.png" },
-                    { client: "Dr. Peters", cat: "peters", img: "dr peters/5.png" },
-                    // Sankalp Social Media
-                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/31.png" },
-                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/32.png" },
-                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/33.png" },
-                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/34.png" },
-                    { client: "Sankalp Social Media", cat: "sankalp", img: "sankalp social media/35.png" }
+                    { 
+                        client: "Apollo Monsoon", 
+                        logo: "assets/apollo.webp",
+                        img: "apollo-monsoon/1.png" 
+                    },
+                    { 
+                        client: "Dr. Manisha Jain", 
+                        logo: "", 
+                        img: "dr manisha jain carousel/17.png" 
+                    },
+                    { 
+                        client: "Sankalp Social Media", 
+                        logo: "", 
+                        img: "sankalp social media/33.png" 
+                    },
+                    { 
+                        client: "Dr. Peters", 
+                        logo: "", 
+                        img: "dr peters/1.png" 
+                    }
                 ];
 
-                const grid = document.getElementById('graphics-grid');
-                const filterTabs = document.querySelectorAll('#graphics-filter-tabs .gfx-tab');
-                const loadMoreBtn = document.getElementById('graphics-load-more');
-                const loadMoreLabel = document.getElementById('graphics-load-more-label');
-                const loadMoreArrow = document.getElementById('graphics-load-more-arrow');
+                const carousel = document.getElementById('graphics-carousel');
+                const prevBtn = document.getElementById('graphics-prev');
+                const nextBtn = document.getElementById('graphics-next');
+                
+                if (!carousel) return;
+
+                const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                let currentIndex = 0;
+                
+                function getInitials(name) {
+                    return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+                }
+
+                // Initialize cards
+                carousel.innerHTML = graphics.map((g, i) => {
+                    const logoHtml = g.logo 
+                        ? `<img src="${esc(g.logo)}" class="graphics-card-logo shrink-0" alt="${esc(g.client)} logo" />`
+                        : `<div class="graphics-card-logo shrink-0 flex items-center justify-center text-[11px] font-bold text-teal-700">${getInitials(g.client)}</div>`;
+
+                    return `
+                        <div class="graphics-card" id="g-card-${i}">
+                            <div class="graphics-card-header">
+                                ${logoHtml}
+                                <div class="flex flex-col justify-center">
+                                    <span class="font-serif text-[1.1rem] leading-none font-500 text-teal-700">${esc(g.client)}</span>
+                                    <span class="mt-1.5 text-[9px] font-semibold uppercase tracking-widest text-gold-500">Creative Graphic</span>
+                                </div>
+                            </div>
+                            <div class="graphics-card-img-wrap relative group">
+                                <img src="${encodeURI(g.img)}" alt="${esc(g.client)} graphic" class="graphics-card-img" loading="lazy" />
+                                <button type="button" class="graphics-maximize absolute top-4 right-4 grid h-10 w-10 place-items-center rounded-full bg-teal-900/60 text-white opacity-0 backdrop-blur-sm transition-all group-hover:opacity-100 hover:bg-teal-900/80 hover:scale-105" aria-label="Maximize image" data-img="${encodeURI(g.img)}" data-client="${esc(g.client)}">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                const cards = Array.from(carousel.querySelectorAll('.graphics-card'));
+
+                function updateCards() {
+                    const total = cards.length;
+                    cards.forEach((card, i) => {
+                        let offset = (i - currentIndex) % total;
+                        if (offset < 0) offset += total; 
+                        
+                        if (offset === 0) {
+                            // Center active card
+                            card.style.transform = 'translateZ(0px) translateX(0) scale(1)';
+                            card.style.opacity = '1';
+                            card.style.zIndex = '10';
+                            card.style.pointerEvents = 'auto';
+                        } else if (offset === 1) {
+                            // Right card
+                            card.style.transform = 'translateZ(-100px) translateX(65%) scale(0.85)';
+                            card.style.opacity = '0.6';
+                            card.style.zIndex = '9';
+                            card.style.pointerEvents = 'none';
+                        } else if (offset === total - 1) {
+                            // Left card
+                            card.style.transform = 'translateZ(-100px) translateX(-65%) scale(0.85)';
+                            card.style.opacity = '0.6';
+                            card.style.zIndex = '9';
+                            card.style.pointerEvents = 'none';
+                        } else {
+                            // Hidden cards (behind center)
+                            card.style.transform = 'translateZ(-200px) translateX(0) scale(0.7)';
+                            card.style.opacity = '0';
+                            card.style.zIndex = '8';
+                            card.style.pointerEvents = 'none';
+                        }
+                    });
+                }
+
                 const lightbox = document.getElementById('graphics-lightbox');
                 const lightboxImg = document.getElementById('graphics-lightbox-img');
                 const lightboxName = document.getElementById('graphics-lightbox-name');
                 const lightboxClose = document.getElementById('graphics-lightbox-close');
-                if (!grid) return;
 
-                const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                const ROWS = 3;
-                let currentFilter = 'all';
-                let showAll = false;
-                let currentItems = [];
-
-                function gridCols() {
-                    const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-                    return Math.max(1, cols);
-                }
-
-                function updateLoadMore(total) {
-                    if (!loadMoreBtn) return;
-                    if (total <= gridCols() * ROWS) {
-                        loadMoreBtn.classList.add('hidden');
-                        return;
-                    }
-                    loadMoreBtn.classList.remove('hidden');
-                    loadMoreLabel.textContent = showAll ? 'Load Less' : 'Load More';
-                    if (loadMoreArrow) loadMoreArrow.classList.toggle('rotate-180', showAll);
-                }
-
-                function render() {
-                    const filtered = currentFilter === 'all'
-                        ? graphics
-                        : graphics.filter(g => g.cat === currentFilter);
-                    if (filtered.length === 0) {
-                        grid.innerHTML = '';
-                        currentItems = [];
-                        if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
-                        return;
-                    }
-                    const limit = gridCols() * ROWS;
-                    const items = showAll ? filtered : filtered.slice(0, limit);
-                    currentItems = items;
-                    grid.innerHTML = items.map((g, i) => `
-                        <figure class="group cursor-zoom-in overflow-hidden rounded-2xl border border-teal-600/15 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-md" data-i="${i}">
-                            <div class="overflow-hidden border-b border-teal-600/10 bg-white">
-                                <img class="img-zoom block h-auto w-full max-h-[24rem] object-contain object-top" loading="lazy"
-                                     src="${encodeURI(g.img)}" alt="${esc(g.client)} graphic" />
-                            </div>
-                            <figcaption class="flex items-center justify-between gap-2 px-4 py-3">
-                                <span class="font-serif text-sm font-400 text-teal-700">${esc(g.client)}</span>
-                                <span class="shrink-0 text-[9px] font-semibold uppercase tracking-widest text-gold-500">Graphic</span>
-                            </figcaption>
-                        </figure>
-                    `).join('');
-                    updateLoadMore(filtered.length);
-                }
-
-                function openLightbox(item) {
+                function openLightbox(imgUrl, clientName) {
                     if (!lightbox || !lightboxImg) return;
-                    lightboxImg.src = encodeURI(item.img);
-                    lightboxImg.alt = item.client + ' graphic';
-                    if (lightboxName) lightboxName.textContent = item.client;
+                    lightboxImg.src = imgUrl;
+                    lightboxImg.alt = clientName + ' graphic';
+                    if (lightboxName) lightboxName.textContent = clientName;
                     lightbox.classList.remove('hidden');
                     document.body.style.overflow = 'hidden';
                 }
@@ -2730,53 +2770,40 @@
                     document.body.style.overflow = '';
                 }
 
-                filterTabs.forEach(btn => {
-                    btn.addEventListener('click', function () {
-                        filterTabs.forEach(b => {
-                            b.classList.remove('active', 'bg-teal-600', 'text-beige-50', 'shadow-sm');
-                            b.classList.add('border', 'border-teal-600/20', 'bg-white', 'text-teal-700');
-                        });
-                        this.classList.remove('border', 'border-teal-600/20', 'bg-white', 'text-teal-700');
-                        this.classList.add('active', 'bg-teal-600', 'text-beige-50', 'shadow-sm');
-                        currentFilter = this.dataset.filter;
-                        showAll = false;
-                        render();
-                    });
+                carousel.addEventListener('click', (e) => {
+                    const btn = e.target.closest('.graphics-maximize');
+                    if (btn) {
+                        openLightbox(btn.dataset.img, btn.dataset.client);
+                    }
                 });
-
-                grid.addEventListener('click', function (e) {
-                    const fig = e.target.closest('[data-i]');
-                    if (!fig) return;
-                    const item = currentItems[Number(fig.dataset.i)];
-                    if (item) openLightbox(item);
-                });
-
-                if (loadMoreBtn) {
-                    loadMoreBtn.addEventListener('click', function () {
-                        showAll = !showAll;
-                        render();
-                    });
-                }
 
                 if (lightboxClose) {
                     lightboxClose.addEventListener('click', closeLightbox);
                 }
                 if (lightbox) {
-                    lightbox.addEventListener('click', function (e) {
+                    lightbox.addEventListener('click', (e) => {
                         if (e.target === lightbox) closeLightbox();
                     });
                 }
-                document.addEventListener('keydown', function (e) {
+                document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') closeLightbox();
                 });
 
-                let resizeT;
-                addEventListener('resize', () => {
-                    clearTimeout(resizeT);
-                    resizeT = setTimeout(() => { if (!showAll) render(); }, 150);
-                }, { passive: true });
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % graphics.length;
+                        updateCards();
+                    });
+                }
 
-                render();
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + graphics.length) % graphics.length;
+                        updateCards();
+                    });
+                }
+
+                updateCards();
             })();
 
             // ===================== CLIENT VIDEOS =====================
